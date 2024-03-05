@@ -10,11 +10,9 @@ const SignIn: React.FC = () => {
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="py-17.5 px-26 text-center">
-              <Link className="mb-5.5 inline-block" to="/">
-                <img className="hidden dark:block" src={Logo} alt="Logo" />
-                <img className="dark:hidden" src={LogoDark} alt="Logo" />
-              </Link>
-
+              <span className='mt-15 inline-block'>
+                <h5>BosquePM App</h5>
+              </span>
               <p className="2xl:px-20">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
                 suspendisse.
@@ -26,7 +24,6 @@ const SignIn: React.FC = () => {
                   width="350"
                   height="350"
                   viewBox="0 0 866.81006 443.0676"
-                  
                 >
                   <path
                     d="M828.33492,244.95227l-2.71537,21.6217-6.73908,53.70394h-135.38272c1.05718-12.03676,2.50247-29.36207,4.04646-48.06508,.15218-1.86793,.31188-3.74756,.46397-5.63886,3.87162-47.01432,8.10823-100.21632,8.10823-100.21632l17.79852,3.31574,34.53207,6.42112,14.07147,2.61514,37.68114,7.01655c18.78727,3.49074,31.7102,30.69301,28.13532,59.22608Z"
@@ -207,7 +204,7 @@ const SignIn: React.FC = () => {
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                Bienvenido a <strong>BosquePM</strong>
+                Bienvenido a <strong>BosquePM App</strong>
               </h2>
 
               <form>
@@ -219,6 +216,8 @@ const SignIn: React.FC = () => {
                     <input
                       type="email"
                       placeholder="barto@example.com"
+                      id="email"
+                      name="email"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 
@@ -278,17 +277,19 @@ const SignIn: React.FC = () => {
                 </div>
 
                 <div className="mb-5">
-                  <Link to="/profile">
-                   <input
-                    type="submit"
-                    value="Ingresar"
-                    className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                  />
+                  <Link to="/dashboard">
+                    <input
+                      type="submit"
+                      value="Ingresar"
+                      className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                    />
                   </Link>
-                 
                 </div>
 
-                <button disabled className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+                <button
+                  disabled
+                  className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
+                >
                   <span>
                     <svg
                       width="20"

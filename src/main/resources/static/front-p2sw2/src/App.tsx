@@ -38,17 +38,17 @@ function App() {
           index
           element={
             <>
-              <PageTitle title="Signin | TailAdmin" />
+              <PageTitle title="Signin | BosquePM App" />
               <SignIn />
             </>
           }
         />
 
         <Route
-          path="/auth/signin"
+          path="/dashboard"
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin " />
+              <PageTitle title="eCommerce Dashboard | BosquePM App " />
               <ECommerce />
             </>
           }
@@ -57,7 +57,7 @@ function App() {
           path="/calendar"
           element={
             <>
-              <PageTitle title="Calendar | TailAdmin" />
+              <PageTitle title="Calendar | BosquePM App" />
               <Calendar />
             </>
           }
@@ -66,7 +66,7 @@ function App() {
           path="/profile"
           element={
             <>
-              <PageTitle title="Profile | TailAdmin " />
+              <PageTitle title="Profile | BosquePM App " />
               <Profile />
             </>
           }
@@ -75,7 +75,7 @@ function App() {
           path="/forms/form-elements"
           element={
             <>
-              <PageTitle title="Form Elements | TailAdmin " />
+              <PageTitle title="Form Elements | BosquePM App " />
               <FormElements />
             </>
           }
@@ -84,7 +84,7 @@ function App() {
           path="/forms/form-layout"
           element={
             <>
-              <PageTitle title="Form Layout | TailAdmin" />
+              <PageTitle title="Form Layout | BosquePM App" />
               <FormLayout />
             </>
           }
@@ -93,7 +93,7 @@ function App() {
           path="/tables"
           element={
             <>
-              <PageTitle title="Tables | TailAdmin " />
+              <PageTitle title="Tables | BosquePM App " />
               <Tables />
             </>
           }
@@ -102,7 +102,7 @@ function App() {
           path="/settings"
           element={
             <>
-              <PageTitle title="Settings | TailAdmin " />
+              <PageTitle title="Settings | BosquePM App " />
               <Settings />
             </>
           }
@@ -111,7 +111,7 @@ function App() {
           path="/chart"
           element={
             <>
-              <PageTitle title="Basic Chart | TailAdmin " />
+              <PageTitle title="Basic Chart | BosquePM App " />
               <Chart />
             </>
           }
@@ -120,7 +120,7 @@ function App() {
           path="/ui/alerts"
           element={
             <>
-              <PageTitle title="Alerts | TailAdmin" />
+              <PageTitle title="Alerts | BosquePM App" />
               <Alerts />
             </>
           }
@@ -129,16 +129,16 @@ function App() {
           path="/ui/buttons"
           element={
             <>
-              <PageTitle title="Buttons | TailAdmin" />
+              <PageTitle title="Buttons | BosquePM App" />
               <Buttons />
             </>
           }
         />
         <Route
-          path="/auth/signin"
+          path="/"
           element={
             <>
-              <PageTitle title="Signin | TailAdmin" />
+              <PageTitle title="Signin | BosquePM App" />
               <SignIn />
             </>
           }
@@ -147,7 +147,7 @@ function App() {
           path="/auth/signup"
           element={
             <>
-              <PageTitle title="Signup | TailAdmin" />
+              <PageTitle title="Signup | BosquePM App" />
               <SignUp />
             </>
           }
