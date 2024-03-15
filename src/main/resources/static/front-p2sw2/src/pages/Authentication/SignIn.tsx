@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogoDark from '../../images/logo/logo-dark.svg';
-import Logo from '../../images/logo/logo.svg';
+import useSignInForm from '../../hooks/useSignInForm';
 
 const SignIn: React.FC = () => {
+  const { email, password, handleEmailChange, handlePasswordChange, handleSubmit } = useSignInForm();
+
   return (
     <>
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
-          <div className="hidden w-full xl:block xl:w-1/2">
+          <div className="hidden w-full h-full xl:block xl:w-1/2">
             <div className="py-17.5 px-26 text-center">
-              <span className='mt-15 inline-block'>
+              <span className='inline-block'>
                 <h5>BosquePM App</h5>
               </span>
               <p className="2xl:px-20">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                suspendisse.
+                Sistema de Gestion de Proyectos
               </p>
 
               <span className="mt-15 inline-block">
@@ -207,7 +207,7 @@ const SignIn: React.FC = () => {
                 Bienvenido a <strong>BosquePM App</strong>
               </h2>
 
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Email
@@ -218,6 +218,8 @@ const SignIn: React.FC = () => {
                       placeholder="barto@example.com"
                       id="email"
                       name="email"
+                      value={email}
+                      onChange={handleEmailChange}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 
@@ -249,6 +251,10 @@ const SignIn: React.FC = () => {
                     <input
                       type="password"
                       placeholder="Su contraseña"
+                      name='password'
+                      id="password"
+                      value={password}
+                      onChange={handlePasswordChange}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 
@@ -277,13 +283,13 @@ const SignIn: React.FC = () => {
                 </div>
 
                 <div className="mb-5">
-                  <Link to="/dashboard">
+                  {/* <Link to="/dashboard"> */}
                     <input
                       type="submit"
-                      value="Ingresar"
+                    value="Ingresar"
                       className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
                     />
-                  </Link>
+                  {/* </Link> */}
                 </div>
 
                 <button
@@ -338,6 +344,7 @@ const SignIn: React.FC = () => {
             </div>
           </div>
         </div>
+        <footer className="text-center mt-10">Desarrollado por: <a href="#"> Alejandro Chitiva Castillo</a></footer>
       </div>
     </>
   );
