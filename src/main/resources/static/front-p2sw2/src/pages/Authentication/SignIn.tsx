@@ -219,6 +219,7 @@ const SignIn: React.FC = () => {
                       id="email"
                       name="email"
                       value={email}
+                      required
                       onChange={handleEmailChange}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
@@ -254,6 +255,7 @@ const SignIn: React.FC = () => {
                       name='password'
                       id="password"
                       value={password}
+                      required
                       onChange={handlePasswordChange}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
