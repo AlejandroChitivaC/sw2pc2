@@ -34,7 +34,6 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/"
           index
           element={
             <>
@@ -135,7 +134,7 @@ function App() {
           }
         />
         <Route
-          path="/"
+          path="/auth/signin"
           element={
             <>
               <PageTitle title="Signin | BosquePM App" />
