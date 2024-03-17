@@ -28,8 +28,8 @@ const useSignInForm = () => {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
-        if (response.data.isValid == true) {
+        console.log(response);
+        if (response.data.valid) {
           //setTimeOut, es para definir un tiempo de espera para que se ejecute lo que está dentro
           setTimeout(() => {
             // acá pueden ver la documentacion de la liberia de notificaciones  https://notiflix.github.io/report
@@ -41,7 +41,7 @@ const useSignInForm = () => {
             );
           }, 1500);
           // Redirecciona a Dashboard (LAS RUTAS LAS ENCUENTRAN EN  *App.tsx*)
-          <Link to="index/dashboard"></Link>;
+          // <Link to="index/dashboard"></Link>;
         } else {
           Report.failure(
             'Error al iniciar Sesión',

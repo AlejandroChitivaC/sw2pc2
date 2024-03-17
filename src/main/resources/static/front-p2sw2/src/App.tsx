@@ -47,7 +47,7 @@ function App() {
           path="index/dashboard"
           element={
             <>
-              <PageTitle title="Dashboard | BosquePM App " />
+              <PageTitle title="Inicio | BosquePM App " />
               <ECommerce />
             </>
           }
@@ -137,7 +137,7 @@ function App() {
           path="/auth/signin"
           element={
             <>
-              <PageTitle title="Signin | BosquePM App" />
+              <PageTitle title="Login | BosquePM App" />
               <SignIn />
             </>
           }
@@ -146,7 +146,7 @@ function App() {
           path="/auth/signup"
           element={
             <>
-              <PageTitle title="Signup | BosquePM App" />
+              <PageTitle title="Registro | BosquePM App" />
               <SignUp />
             </>
           }
