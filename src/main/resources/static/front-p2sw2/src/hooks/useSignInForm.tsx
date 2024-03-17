@@ -31,17 +31,20 @@ const useSignInForm = () => {
         console.log(response);
         if (response.data.valid) {
           //setTimeOut, es para definir un tiempo de espera para que se ejecute lo que está dentro
+
+          // acá pueden ver la documentacion de la liberia de notificaciones  https://notiflix.github.io/report
+          Report.success(
+            'Login Exitoso',
+            // Esto es un template string, permite pasar una variable como un valor de texto ${var}
+            `${response.data.message}`,
+            'Ok',
+          );
+
           setTimeout(() => {
-            // acá pueden ver la documentacion de la liberia de notificaciones  https://notiflix.github.io/report
-            Report.success(
-              'Login Exitoso',
-              // Esto es un template string, permite pasar una variable como un valor de texto ${var}
-              `${response.data.message}`,
-              'Ok',
-            );
-          }, 1500);
-          // Redirecciona a Dashboard (LAS RUTAS LAS ENCUENTRAN EN  *App.tsx*)
-          // <Link to="index/dashboard"></Link>;
+            // Redirecciona a Dashboard (LAS RUTAS LAS ENCUENTRAN EN  *App.tsx*)
+            window.location.href = "index/dashboard";
+            // <Link to="index/dashboard"></Link>;
+          }, 500);
         } else {
           Report.failure(
             'Error al iniciar Sesión',

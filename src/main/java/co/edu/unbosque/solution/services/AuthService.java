@@ -19,7 +19,6 @@ public class AuthService {
 
         var response = new ResponseBase<LoginData>();
         try {
-//            var data = new LoginData(email, password);
             var data = _userRepo.findUsuarioByEmailAndPassword(loginData.getEmail(), loginData.getPassword());
             if (data != null) {
                 response.setValid(true);

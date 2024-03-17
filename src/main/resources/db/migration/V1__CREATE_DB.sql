@@ -3,7 +3,6 @@
 -- Host: 127.0.0.1    Database: proyectoabc
 -- ------------------------------------------------------
 -- Server version	8.0.34
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -23,7 +22,7 @@ DROP TABLE IF EXISTS `empleado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empleado` (
-  `idEmpleado` int NOT NULL,
+  `idEmpleado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `direccion` varchar(255) DEFAULT NULL,
   `salario` decimal(10,2) DEFAULT NULL,
@@ -34,8 +33,9 @@ CREATE TABLE `empleado` (
   `telefono` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`idEmpleado`),
   KEY `tipo_documento_id` (`tipo_documento_id`),
+  KEY `idx_idEmpleado` (`idEmpleado`),
   CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`tipo_documento_id`) REFERENCES `tipodocumento` (`idTipoDocumento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `empleado` (
 
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-INSERT INTO `empleado` VALUES (1,'Juan Pérez','Calle 123',2500000.00,'2023-01-15','1990-05-10',1,'23557163','123456789');
+INSERT INTO `empleado` VALUES (NULL,'Juan Pérez','Calle 123',2500000.00,'2023-01-15','1990-05-10',1,'23557163','123456789');
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,13 +56,13 @@ DROP TABLE IF EXISTS `empleado_rol`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empleado_rol` (
-  `idEmpleado` int NOT NULL,
+  `idEmpleado` int NOT NULL AUTO_INCREMENT,
   `idRol` int NOT NULL,
   PRIMARY KEY (`idEmpleado`,`idRol`),
   KEY `idRol` (`idRol`),
   CONSTRAINT `empleado_rol_ibfk_1` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`),
   CONSTRAINT `empleado_rol_ibfk_2` FOREIGN KEY (`idRol`) REFERENCES `rol` (`idRol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS `equipoproyecto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `equipoproyecto` (
-  `idEquipoProyecto` int NOT NULL,
+  `idEquipoProyecto` int NOT NULL AUTO_INCREMENT,
   `nombre_equipo` varchar(100) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE `equipoproyecto` (
   PRIMARY KEY (`idEquipoProyecto`),
   KEY `idLiderEquipo` (`idEmpleado`),
   CONSTRAINT `equipoproyecto_ibfk_1` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `equipoproyecto` (
 
 LOCK TABLES `equipoproyecto` WRITE;
 /*!40000 ALTER TABLE `equipoproyecto` DISABLE KEYS */;
-INSERT INTO `equipoproyecto` VALUES (1,'Equipo de Desarrollo','Equipo encargado del desarrollo de software','2023-01-20',1);
+INSERT INTO `equipoproyecto` VALUES (NULL,'Equipo de Desarrollo','Equipo encargado del desarrollo de software','2023-01-20',1);
 /*!40000 ALTER TABLE `equipoproyecto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +121,7 @@ CREATE TABLE `historialcambios` (
   KEY `idEmpleado` (`idEmpleado`),
   CONSTRAINT `historialcambios_ibfk_1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`),
   CONSTRAINT `historialcambios_ibfk_2` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS `proyecto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proyecto` (
-  `idProyecto` int NOT NULL,
+  `idProyecto` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
@@ -152,7 +152,7 @@ CREATE TABLE `proyecto` (
   PRIMARY KEY (`idProyecto`),
   KEY `idLiderProyecto` (`idLiderProyecto`),
   CONSTRAINT `proyecto_ibfk_1` FOREIGN KEY (`idLiderProyecto`) REFERENCES `empleado` (`idEmpleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +161,7 @@ CREATE TABLE `proyecto` (
 
 LOCK TABLES `proyecto` WRITE;
 /*!40000 ALTER TABLE `proyecto` DISABLE KEYS */;
-INSERT INTO `proyecto` VALUES (1,'Proyecto ABC','Desarrollo de una aplicación web','2023-03-16','2023-10-27',25000000.00,'Terminado',1);
+INSERT INTO `proyecto` VALUES (NULL,'Proyecto ABC','Desarrollo de una aplicación web','2023-03-16','2023-10-27',25000000.00,'Terminado',1);
 /*!40000 ALTER TABLE `proyecto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +173,7 @@ DROP TABLE IF EXISTS `proyectoequipo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proyectoequipo` (
-  `idProyecto` int NOT NULL,
+  `idProyecto` int NOT NULL ,
   `idEquipoProyecto` int NOT NULL,
   PRIMARY KEY (`idProyecto`,`idEquipoProyecto`),
   KEY `idEquipoProyecto` (`idEquipoProyecto`),
@@ -203,7 +203,7 @@ CREATE TABLE `rol` (
   `idRol` int NOT NULL AUTO_INCREMENT,
   `rol` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idRol`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +212,14 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'Administrador'),(2,'Desarrollador'),(3,'Analista de Negocios'),(4,'Tester'),(5,'Diseñador UI/UX'),(6,'Analista de Datos'),(7,'Soporte Técnico');
+INSERT INTO `rol` VALUES
+(NULL,'Administrador'),
+(NULL,'Desarrollador'),
+(NULL,'Analista de Negocios'),
+(NULL,'Tester'),
+(NULL,'Diseñador UI/UX'),
+(NULL,'Analista de Datos'),
+(NULL,'Soporte Técnico');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,14 +231,14 @@ DROP TABLE IF EXISTS `seguimientoproyecto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seguimientoproyecto` (
-  `idSeguimiento` int NOT NULL,
+  `idSeguimiento` int NOT NULL AUTO_INCREMENT,
   `idProyecto` int DEFAULT NULL,
   `fecha_seguimiento` date DEFAULT NULL,
   `observaciones` text,
   PRIMARY KEY (`idSeguimiento`),
   KEY `idProyecto` (`idProyecto`),
   CONSTRAINT `seguimientoproyecto_ibfk_1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,7 +268,7 @@ CREATE TABLE `seguimientotiempo` (
   KEY `idEmpleado` (`idEmpleado`),
   CONSTRAINT `seguimientotiempo_ibfk_1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`),
   CONSTRAINT `seguimientotiempo_ibfk_2` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,7 +277,7 @@ CREATE TABLE `seguimientotiempo` (
 
 LOCK TABLES `seguimientotiempo` WRITE;
 /*!40000 ALTER TABLE `seguimientotiempo` DISABLE KEYS */;
-INSERT INTO `seguimientotiempo` VALUES (1,1,1,8.00,'2023-02-28');
+INSERT INTO `seguimientotiempo` VALUES (NULL,1,1,8.00,'2023-02-28');
 /*!40000 ALTER TABLE `seguimientotiempo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +298,7 @@ CREATE TABLE `tarea` (
   PRIMARY KEY (`idTarea`),
   KEY `idProyecto` (`idProyecto`),
   CONSTRAINT `tarea_ibfk_1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +307,7 @@ CREATE TABLE `tarea` (
 
 LOCK TABLES `tarea` WRITE;
 /*!40000 ALTER TABLE `tarea` DISABLE KEYS */;
-INSERT INTO `tarea` VALUES (1,1,'Desarrollar módulo de inicio de sesión','2023-02-15','2023-03-15','En curso'),(2,1,'Desarrollar módulo de inicio','2023-05-15','2023-08-15','En curso');
+INSERT INTO `tarea` VALUES (NULL,1,'Desarrollar módulo de inicio de sesión','2023-02-15','2023-03-15','En curso'),(2,1,'Desarrollar módulo de inicio','2023-05-15','2023-08-15','En curso');
 /*!40000 ALTER TABLE `tarea` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +323,7 @@ CREATE TABLE `tipodocumento` (
   `tipoDocumento` varchar(100) NOT NULL,
   PRIMARY KEY (`idTipoDocumento`),
   UNIQUE KEY `nombre` (`tipoDocumento`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -325,7 +332,7 @@ CREATE TABLE `tipodocumento` (
 
 LOCK TABLES `tipodocumento` WRITE;
 /*!40000 ALTER TABLE `tipodocumento` DISABLE KEYS */;
-INSERT INTO `tipodocumento` VALUES (1,'Cedula de ciudadania'),(2,'Cedula de extranjeria'),(3,'Pasaporte');
+INSERT INTO `tipodocumento` VALUES (null,'Cedula de ciudadania'),(null,'Cedula de extranjeria'),(null,'Pasaporte');
 /*!40000 ALTER TABLE `tipodocumento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -347,7 +354,7 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `email` (`email`),
   KEY `idEmpleado` (`idEmpleado`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,7 +363,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (3,'juanperez','juan@example.com','password123',1);
+INSERT INTO `usuario` VALUES (NULL,'juanperez','juan@example.com','password123',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -685,4 +692,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-16 14:41:21
+-- Dump completed on 2024-03-17 13:47:38
