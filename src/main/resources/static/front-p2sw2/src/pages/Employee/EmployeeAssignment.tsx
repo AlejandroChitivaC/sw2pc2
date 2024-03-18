@@ -71,10 +71,9 @@ const AsignacionEmpleados = () => {
                   <SelectGroupOne />
               </div>
 
-              <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
-                  Registrar 
-                </button>
-              
+              <button className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
+                Registrar
+              </button>
             </div>
           </div>
           
