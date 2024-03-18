@@ -7,9 +7,10 @@ import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
-import ECommerce from './pages/Dashboard/ECommerce';
-import FormElements from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
+import ProjectRegistration from './pages/Project/ProjectRegistration';
+import ProjectUpdate from './pages/Project/ProjectUpdate';
+import EmployeeRegistration from './pages/Employee/EmployeeRegistration';
+import EmployeeAssignment from './pages/Employee/EmployeeAssignment';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
@@ -37,21 +38,58 @@ function App() {
           index
           element={
             <>
-              <PageTitle title="Signin | BosquePM App" />
+              <PageTitle title="Bienvenido" />
               <SignIn />
             </>
           }
         />
-
         <Route
-          path="index/dashboard"
+          path="/auth/signup"
           element={
             <>
-              <PageTitle title="Inicio | BosquePM App " />
-              <ECommerce />
+              <PageTitle title="Registro" />
+              <SignUp />
+
             </>
           }
         />
+        <Route
+          path="/registro-proyecto"
+          element={
+            <>
+              <PageTitle title="Registro Proyecto " />
+              <ProjectRegistration />
+            </>
+          }
+        />
+        <Route
+          path="/actualizar-proyecto"
+          element={
+            <>
+              <PageTitle title="Actualización del proyecto" />
+              <ProjectUpdate />
+            </>
+          }
+        />
+        <Route
+          path="/registro-empleados"
+          element={
+            <>
+              <PageTitle title="Registro Empleados " />
+              <EmployeeRegistration />
+            </>
+          }
+        />
+        <Route
+          path="/asignacion-empleados"
+          element={
+            <>
+              <PageTitle title="Registro Proyecto " />
+              <EmployeeAssignment />
+            </>
+          }
+        />
+
         <Route
           path="/calendar"
           element={
@@ -70,24 +108,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/forms/form-elements"
-          element={
-            <>
-              <PageTitle title="Form Elements | BosquePM App " />
-              <FormElements />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-layout"
-          element={
-            <>
-              <PageTitle title="Form Layout | BosquePM App" />
-              <FormLayout />
-            </>
-          }
-        />
+        
         <Route
           path="/tables"
           element={
@@ -151,6 +172,7 @@ function App() {
             </>
           }
         />
+
       </Routes>
     </>
   );
