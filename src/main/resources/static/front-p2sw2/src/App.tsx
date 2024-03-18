@@ -35,6 +35,7 @@ function App() {
     <>
       <Routes>
         <Route
+          path="/"
           index
           element={
             <>
@@ -49,7 +50,6 @@ function App() {
             <>
               <PageTitle title="Registro" />
               <SignUp />
-
             </>
           }
         />
@@ -108,7 +108,7 @@ function App() {
             </>
           }
         />
-        
+
         <Route
           path="/tables"
           element={
@@ -172,7 +172,6 @@ function App() {
             </>
           }
         />
-
       </Routes>
     </>
   );
