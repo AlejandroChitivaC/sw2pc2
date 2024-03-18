@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import useSignInForm from '../../hooks/useSignInForm';
 
 const SignIn: React.FC = () => {
-  const { email, password, handleEmailChange, handlePasswordChange, handleSubmit } = useSignInForm();
+  const {
+    email,
+    password,
+    handleEmailChange,
+    handlePasswordChange,
+    handleSubmit,
+  } = useSignInForm();
 
   return (
     <>
@@ -17,7 +23,6 @@ const SignIn: React.FC = () => {
               <p className="2xl:px-20">
                 Sistema de Administración de Proyectos
               </p>
-
               <span className="mt-15 inline-block">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +257,7 @@ const SignIn: React.FC = () => {
                     <input
                       type="password"
                       placeholder="Su contraseña"
-                      name='password'
+                      name="password"
                       id="password"
                       value={password}
                       required
@@ -286,11 +291,11 @@ const SignIn: React.FC = () => {
 
                 <div className="mb-5">
                   {/* <Link to="/dashboard"> */}
-                    <input
-                      type="submit"
+                  <input
+                    type="submit"
                     value="Ingresar"
-                      className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                    />
+                    className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                  />
                   {/* </Link> */}
                 </div>
 
@@ -307,7 +312,6 @@ const SignIn: React.FC = () => {
             </div>
           </div>
         </div>
-       
       </div>
     </>
   );
