@@ -3,12 +3,12 @@ import DefaultLayout from '../../layout/DefaultLayout';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 import SelectGroupOne from '../../components/Forms/SelectGroup/SelectGroupOne';
 
-const AsignacionEmpleados = () => {
+const EmployeeAsignment = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Asigne un empleado" />
 
-      <div className="container mx-auto">
+      <div className="container mx-auto w-full">
         <div className=" justify-center items-center gap-9">
       
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -84,4 +84,4 @@ const AsignacionEmpleados = () => {
   );
 };
 
-export default AsignacionEmpleados;
+export default EmployeeAsignment;
