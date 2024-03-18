@@ -7,12 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "usuario", schema = "bd_sw2pc2")
 public class Usuario {
     @Id
-    private Integer id;
-    private String usuario;
+    private Integer idUsuario;
     private String email;
     private String password;
-
 }

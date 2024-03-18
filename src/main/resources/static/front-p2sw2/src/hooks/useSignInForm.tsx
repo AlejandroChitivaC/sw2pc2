@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Report } from 'notiflix/build/notiflix-report-aio';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // Hook para manejar el estado y la lógica del formulario de login (Básicamente es una función)
 const useSignInForm = () => {
@@ -30,8 +30,6 @@ const useSignInForm = () => {
       .then((response) => {
         console.log(response);
         if (response.data.valid) {
-          //setTimeOut, es para definir un tiempo de espera para que se ejecute lo que está dentro
-
           // acá pueden ver la documentacion de la liberia de notificaciones  https://notiflix.github.io/report
           Report.success(
             'Login Exitoso',
@@ -40,9 +38,10 @@ const useSignInForm = () => {
             'Ok',
           );
 
+          //setTimeOut, es para definir un tiempo de espera para que se ejecute lo que está dentro
           setTimeout(() => {
             // Redirecciona a Dashboard (LAS RUTAS LAS ENCUENTRAN EN  *App.tsx*)
-            window.location.href = "index/dashboard";
+            window.location.href = '/index/dashboard';
             // <Link to="index/dashboard"></Link>;
           }, 500);
         } else {

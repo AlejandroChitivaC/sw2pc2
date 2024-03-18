@@ -4,6 +4,7 @@ public class ResponseBase<T> {
 
     private boolean isValid;
     private String message;
+    //Esto es un generic type
     private T dataSingle;
 
     public boolean isValid() {
