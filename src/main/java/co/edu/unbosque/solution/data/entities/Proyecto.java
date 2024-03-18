@@ -10,34 +10,46 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "proyecto", schema = "bd_sw2pc2")
+@Table(name = "proyecto")
 public class Proyecto {
     @Id
-    @Column(name = "id_proyecto", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idProyecto", nullable = false)
+    private Integer idProyecto;
 
-    @Column(name = "nombre_completo", nullable = false)
-    private String nombreCompleto;
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @Column(name = "fecha_inicio")
+    private LocalDate fechaInicio;
+
+    @Column(name = "fecha_fin_prevista")
+    private LocalDate fechaFinPrevista;
+
+    @Column(name = "presupuesto", precision = 10, scale = 2)
+    private BigDecimal presupuesto;
+
+    @Column(name = "estado", length = 50)
+    private String estado;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idLiderProyecto")
+    private Empleado idLiderProyecto;
 
     @Lob
     @Column(name = "descripcion_proyecto", nullable = false)
     private String descripcionProyecto;
 
-    @Column(name = "fecha_inicio", nullable = false)
-    private LocalDate fechaInicio;
+    @Column(name = "nombre_completo", nullable = false)
+    private String nombreCompleto;
 
-    @Column(name = "fecha_finalizacion", nullable = false)
-    private LocalDate fechaFinalizacion;
+    @Column(name = "id_equipo", nullable = false)
+    private Integer idEquipo;
 
-    @Column(name = "presupuesto", nullable = false, precision = 10, scale = 2)
-    private BigDecimal presupuesto;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_lider", nullable = false)
-    private Empleado idLider;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_equipo", nullable = false)
-    private Equipo idEquipo;
+    @Column(name = "id_lider", nullable = false)
+    private Integer idLider;
 
 }

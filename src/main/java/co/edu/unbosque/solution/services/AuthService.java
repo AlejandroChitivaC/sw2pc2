@@ -9,23 +9,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthService {
 
-    @Autowired
-    UsuarioRepository usuarioRepository;
+    UsuarioRepository _userRepo;
 
-    public ResponseBase<LoginData> authUser(String email, String password) {
+    public AuthService(UsuarioRepository usuarioRepository) {
+        _userRepo = usuarioRepository;
+    }
+
+    public ResponseBase<LoginData> authUser(LoginData loginData) {
 
         var response = new ResponseBase<LoginData>();
         try {
-//            var data = new LoginData(email, password);
-            var data = usuarioRepository.findUsuarioByEmailEquals(email);
+            var data = _userRepo.findUsuarioByEmailAndPassword(loginData.getEmail(), loginData.getPassword());
             if (data != null) {
-                response.setValid(true);
                 response.setValid(true);
                 response.setMessage("Bienvenido " +
                         data.getEmail());
             } else {
                 response.setValid(false);
-                response.setMessage("Usuario no encontrado , verifique las credenciales");
+                response.setMessage("Usuario no encontrado, verifique las credenciales");
             }
         } catch (Exception e) {
             response.setValid(false);

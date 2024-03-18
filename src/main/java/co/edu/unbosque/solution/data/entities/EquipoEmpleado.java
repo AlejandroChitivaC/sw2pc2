@@ -7,15 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "equipo_empleados", schema = "bd_sw2pc2")
+@Table(name = "equipo_empleados")
 public class EquipoEmpleado {
     @EmbeddedId
     private EquipoEmpleadoId id;
-
-    @MapsId("idEmpleado")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_empleado", nullable = false)
-    private Empleado idEmpleado;
 
     @MapsId("idEquipo")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
