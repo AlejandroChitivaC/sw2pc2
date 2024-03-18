@@ -1,43 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
+import axios from 'axios';
 
 const SelectGroupOne: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('');
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
+  const [options, setOptions] = useState<string[]>([]);
 
   const changeTextColor = () => {
     setIsOptionSelected(true);
   };
 
+  useEffect(() => {
+    const fetchOptions = async () => {
+      try {
+        const response = await axios.get('/api/options'); // Hacer solicitud HTTP al endpoint del backend
+        setOptions(response.data);
+      } catch (error) {
+        console.error('Error fetching options:', error);
+      }
+    };
+
+    fetchOptions();
+  }, []);
+
+
   return (
     <div className="mb-4.5">
       <label className="mb-2.5 block text-black dark:text-white">
         {' '}
-        Subject{' '}
+        Líder del proyecto{' '}
       </label>
 
       <div className="relative z-20 bg-transparent dark:bg-form-input">
-        <select
+      <select
           value={selectedOption}
-          onChange={(e) => {
-            setSelectedOption(e.target.value);
-            changeTextColor();
-          }}
-          className={`relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary ${
-            isOptionSelected ? 'text-black dark:text-white' : ''
-          }`}
+          onChange={(e) => setSelectedOption(e.target.value)}
+          className="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
         >
-          <option value="" disabled className="text-body dark:text-bodydark">
-            Select your subject
+          <option value="" disabled>
+            Seleccione el líder
           </option>
-          <option value="USA" className="text-body dark:text-bodydark">
-            USA
-          </option>
-          <option value="UK" className="text-body dark:text-bodydark">
-            UK
-          </option>
-          <option value="Canada" className="text-body dark:text-bodydark">
-            Canada
-          </option>
+          {options.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
         </select>
 
         <span className="absolute top-1/2 right-4 z-30 -translate-y-1/2">
