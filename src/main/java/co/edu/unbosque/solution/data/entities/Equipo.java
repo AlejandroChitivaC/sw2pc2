@@ -10,10 +10,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "equipo", schema = "bd_sw2pc2")
+@Table(name = "equipo")
 public class Equipo {
     @Id
     @Column(name = "id_equipo", nullable = false)
     private Integer id;
 
+    //TODO [JPA Buddy] generate columns from DB
 }

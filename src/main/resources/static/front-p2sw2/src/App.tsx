@@ -35,7 +35,6 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/"
           index
           element={
             <>
@@ -156,15 +155,24 @@ function App() {
           }
         />
         <Route
-          path="/"
+          path="/auth/signin"
           element={
             <>
-              <PageTitle title="Signin | BosquePM App" />
+              <PageTitle title="Login | BosquePM App" />
               <SignIn />
             </>
           }
         />
-        
+        <Route
+          path="/auth/signup"
+          element={
+            <>
+              <PageTitle title="Registro | BosquePM App" />
+              <SignUp />
+            </>
+          }
+        />
+
       </Routes>
     </>
   );

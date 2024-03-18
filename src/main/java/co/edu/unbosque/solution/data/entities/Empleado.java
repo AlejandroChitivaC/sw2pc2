@@ -10,35 +10,41 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "empleado", schema = "bd_sw2pc2")
+@Table(name = "empleado")
 public class Empleado {
     @Id
-    @Column(name = "id_empleado", nullable = false)
+    @Column(name = "idEmpleado", nullable = false)
     private Integer id;
+
+    @Column(name = "nombre", length = 100)
+    private String nombre;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    @Column(name = "salario", precision = 10, scale = 2)
+    private BigDecimal salario;
+
+    @Column(name = "fecha_ingreso")
+    private LocalDate fechaIngreso;
+
+    @Column(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_documento_id")
+    private Tipodocumento tipoDocumento;
+
+    @Column(name = "numero_documento", length = 50)
+    private String numeroDocumento;
+
+    @Column(name = "telefono", length = 20)
+    private String telefono;
 
     @Column(name = "nombre_completo", nullable = false)
     private String nombreCompleto;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_tipoDocumento", nullable = false)
-    private TipoDocumento idTipodocumento;
-
-    @Column(name = "numero_documento", nullable = false, length = 20)
-    private String numeroDocumento;
-
-    @Column(name = "fecha_nacimiento", nullable = false)
-    private LocalDate fechaNacimiento;
-
-    @Column(name = "telefono", nullable = false, length = 20)
-    private String telefono;
-
-    @Column(name = "direccion", nullable = false)
-    private String direccion;
-
-    @Column(name = "salario", nullable = false, precision = 10, scale = 2)
-    private BigDecimal salario;
-
-    @Column(name = "fecha_ingreso", nullable = false)
-    private LocalDate fechaIngreso;
+    @Column(name = "id_tipo_documento", nullable = false)
+    private Integer idTipoDocumento;
 
 }

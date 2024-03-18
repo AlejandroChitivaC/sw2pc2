@@ -14,14 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-    @Autowired
-    UsuarioRepository _userRepo;
-
     private AuthService _authService;
     private HttpSession httpSession;
 
-    public AuthController(UsuarioRepository userRepo, AuthService authService) {
-        _userRepo = userRepo;
+    public AuthController(AuthService authService) {
         _authService = authService;
     }
 
@@ -30,8 +26,8 @@ public class AuthController {
 
         var response = new ResponseBase<LoginData>();
         try {
-            var data = _authService.authUser(loginData.email(), loginData.password());
-            response.setValid(true);
+            var data = _authService.authUser(loginData);
+            response.setValid(data.isValid());
             response.setMessage(data.getMessage());
 
         } catch (Exception e) {
