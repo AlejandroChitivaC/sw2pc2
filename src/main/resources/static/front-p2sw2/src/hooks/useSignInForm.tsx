@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Link } from 'react-router-dom';
 
-// Hook personalizado para manejar el estado y la lógica de un formulario de inicio de sesión
+// Hook para manejar el estado y la lógica del formulario de login (Básicamente es una función)
 const useSignInForm = () => {
   // Estados para almacenar el email y la clave ingresados por el usuario
   const [email, setEmail] = useState<string>('');
@@ -19,29 +19,40 @@ const useSignInForm = () => {
     setPassword(e.target.value);
   };
 
-  // Función para manejar el envío del formulario
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // Axios permite realizar als solicitudes HTTP a la API  https://axios-http.com/docs/
     axios
       .post(url, {
         email: email,
         password: password,
       })
       .then((response) => {
-        // Manejar la respuesta exitosa aquí
-        console.log('Respuesta del servidor:', response.data);
-        // Mostrar un mensaje de éxito o redirigir al usuario
-        setTimeout(() => {
-          Report.success(
-            'Login Exitoso',
-            `Hola ${email}. Será redireccionado a la página principal.`,
-            'Okay',
+        console.log(response.data);
+        if (response.data.isValid == true) {
+          //setTimeOut, es para definir un tiempo de espera para que se ejecute lo que está dentro
+          setTimeout(() => {
+            // acá pueden ver la documentacion de la liberia de notificaciones  https://notiflix.github.io/report
+            Report.success(
+              'Login Exitoso',
+              // Esto es un template string, permite pasar una variable como un valor de texto ${var}
+              `${response.data.message}`,
+              'Ok',
+            );
+          }, 1500);
+          // Redirecciona a Dashboard (LAS RUTAS LAS ENCUENTRAN EN  *App.tsx*)
+          <Link to="index/dashboard"></Link>;
+        } else {
+          Report.failure(
+            'Error al iniciar Sesión',
+            // Esto es un template string, permite pasar una variable como un valor de texto ${var}
+            `${response.data.message}`,
+            'Ok',
           );
-        }, 1500);
-        <Link to="/dashboard"></Link>;
+        }
       })
       .catch((error) => {
-        // Manejar el error de la solicitud
+        // Manejar el error de la solicitud a la API (Spring)
         console.log('Error en la solicitud:', error);
         // Mostrar un mensaje de error al usuario
         setTimeout(() => {

@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import useSignInForm from '../../hooks/useSignInForm';
 
 const SignIn: React.FC = () => {
-  const { email, password, handleEmailChange, handlePasswordChange, handleSubmit } = useSignInForm();
+  const {
+    email,
+    password,
+    handleEmailChange,
+    handlePasswordChange,
+    handleSubmit,
+  } = useSignInForm();
 
   return (
     <>
@@ -11,12 +17,10 @@ const SignIn: React.FC = () => {
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full h-full xl:block xl:w-1/2">
             <div className="py-17.5 px-26 text-center">
-              <span className='inline-block'>
+              <span className="inline-block">
                 <h5>BosquePM App</h5>
               </span>
-              <p className="2xl:px-20">
-                Sistema de Gestion de Proyectos
-              </p>
+              <p className="2xl:px-20">Sistema de Gestion de Proyectos</p>
 
               <span className="mt-15 inline-block">
                 <svg
@@ -252,7 +256,7 @@ const SignIn: React.FC = () => {
                     <input
                       type="password"
                       placeholder="Su contraseña"
-                      name='password'
+                      name="password"
                       id="password"
                       value={password}
                       required
@@ -286,11 +290,11 @@ const SignIn: React.FC = () => {
 
                 <div className="mb-5">
                   {/* <Link to="/dashboard"> */}
-                    <input
-                      type="submit"
+                  <input
+                    type="submit"
                     value="Ingresar"
-                      className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                    />
+                    className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                  />
                   {/* </Link> */}
                 </div>
 
@@ -346,7 +350,9 @@ const SignIn: React.FC = () => {
             </div>
           </div>
         </div>
-        <footer className="text-center mt-10">Desarrollado por: <a href="#"> Alejandro Chitiva Castillo</a></footer>
+        <footer className="text-center mt-10">
+          Desarrollado por: <a href="www.alejandrochitivac.online" target='_blank'> ACC</a>
+        </footer>
       </div>
     </>
   );

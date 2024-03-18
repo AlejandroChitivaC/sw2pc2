@@ -45,10 +45,10 @@ function App() {
         />
 
         <Route
-          path="/dashboard"
+          path="index/dashboard"
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | BosquePM App " />
+              <PageTitle title="Dashboard | BosquePM App " />
               <ECommerce />
             </>
           }
