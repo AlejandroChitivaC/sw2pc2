@@ -50,7 +50,7 @@ const RegistroEmpleados = () => {
                 </label>
                 <input
                   type="number"
-                  placeholder="25000000.00"
+                  placeholder="2500.000.000"
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 />
               </div>
