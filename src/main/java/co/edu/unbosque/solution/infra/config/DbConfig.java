@@ -7,8 +7,16 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
+/**
+ * The type Db config.
+ */
 @Configuration
 public class DbConfig {
+    /**
+     * Data source data source.
+     *
+     * @return the data source
+     */
     @Primary
     // @Bean marca un método como componenete de configuracion
     @Bean

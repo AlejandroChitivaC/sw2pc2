@@ -9,6 +9,9 @@ import org.hibernate.Hibernate;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * The type Proyectoequipo id.
+ */
 @Getter
 @Setter
 @Embeddable

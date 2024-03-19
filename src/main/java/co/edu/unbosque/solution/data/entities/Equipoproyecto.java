@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+/**
+ * The type Equipoproyecto.
+ */
 @Getter
 @Setter
 @Entity
