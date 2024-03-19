@@ -363,7 +363,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (NULL,'juanperez','juan@example.com','password123',1);
+INSERT INTO `usuario` VALUES (NULL,'juanperez','juan@example.com','password123');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -10,11 +10,11 @@ const SignUp: React.FC = () => {
             <div className="text-center h-full w-full">
               <span className="inline-block">
                 <h5>
-                  <strong>BosquePM App</strong>
+                  <strong>Empresa ABC</strong>
                 </h5>
               </span>
               <p className="py-2">
-                <em>"Sistema de Gestion de Proyectos"</em>
+                <em>"Sistema de Administración de Proyectos"</em>
               </p>
               <span className="inline-block">
                 <img
@@ -31,14 +31,18 @@ const SignUp: React.FC = () => {
                 Registrese ahora en la Empresa ABC
               </h2>
 
-              <form>
+              <form onSubmit={handleSubmit} id="signupForm">
                 <div className="mb-4">
-                  <label className="mb-2.5 block font-medium text-black dark:text-white">
+                  <label
+                    htmlFor="name"
+                    className="mb-2.5 block font-medium text-black dark:text-white"
+                  >
                     Nombre
                   </label>
                   <div className="relative">
                     <input
                       type="text"
+                      id="name"
                       placeholder="Ingrese su nombre completo"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
@@ -68,12 +72,16 @@ const SignUp: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <label className="mb-2.5 block font-medium text-black dark:text-white">
+                  <label
+                    htmlFor="email"
+                    className="mb-2.5 block font-medium text-black dark:text-white"
+                  >
                     Email
                   </label>
                   <div className="relative">
                     <input
                       type="email"
+                      id="email"
                       placeholder="Ingrese su email"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
@@ -97,32 +105,18 @@ const SignUp: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <div className="mb4">
-                  <label className="mb-2.5 block font-medium text-black dark:text-white">
-                    Tipo De Documento
-                  </label>
-                  <div className="relative">
-                    <select
-                      name=""
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    >
-                      <option selected disabled>
-                        Seleccione una opción
-                      </option>
-                      <option value="1">Cédula Ciudadanía (C.C)</option>
-                      <option value="2">Cédula Extranjería (C.E)</option>
-                      <option value="3">Pasaporte (P.A)</option>
-                    </select>
-                  </div>
-                </div>
 
                 <div className="mb-4">
-                  <label className="mb-2.5 block font-medium text-black dark:text-white">
+                  <label
+                    htmlFor="password"
+                    className="mb-2.5 block font-medium text-black dark:text-white"
+                  >
                     Contraseña
                   </label>
                   <div className="relative">
                     <input
                       type="password"
+                      id="password"
                       placeholder="Ingrese su contraseña"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
@@ -152,12 +146,16 @@ const SignUp: React.FC = () => {
                 </div>
 
                 <div className="mb-6">
-                  <label className="mb-2.5 block font-medium text-black dark:text-white">
+                  <label
+                    htmlFor="retype-password"
+                    className="mb-2.5 block font-medium text-black dark:text-white"
+                  >
                     Repita su contraseña
                   </label>
                   <div className="relative">
                     <input
                       type="password"
+                      id="retype-password"
                       placeholder="Ingrese su contraseña"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
@@ -194,11 +192,9 @@ const SignUp: React.FC = () => {
                   />
                 </div>
 
-
                 <div className="mt-6 text-center">
                   <p>
                     Ya tiene una cuenta?{' '}
-
                     <Link to="/auth/signin" className="text-primary">
                       Inicie Sesión
                     </Link>
