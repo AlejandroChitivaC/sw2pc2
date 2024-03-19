@@ -1,10 +1,13 @@
+import React, { useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import DefaultLayout from '../../layout/DefaultLayout';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 import SelectGroupOne from '../../components/Forms/SelectGroup/SelectGroupOne';
+import SelectGroupTwo from '../../components/Forms/SelectGroup/SelectGroupTwo';
+
 
 const ProjectRegistration = () => {
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     projectName: '',
     projectDescription: '',
     startDate: '',
@@ -13,15 +16,16 @@ const ProjectRegistration = () => {
     status: '',
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+ 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Aquí puedes manejar la lógica de envío del formulario, como enviar los datos al backend
-    console.log(formData);
+    console.log(form);
   };
+
+  const handelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+};
 
   return (
     <DefaultLayout>
@@ -43,8 +47,11 @@ const ProjectRegistration = () => {
                   </label>
                   <input
                     type="text"
+                    id="projectName"
                     placeholder="Nombre del proyecto"
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    value={form.projectName}
+                    onChange={handelChange}
                   />
                 </div>
 
@@ -54,8 +61,11 @@ const ProjectRegistration = () => {
                   </label>
                   <input
                     type="text"
+                    id='projectDescription'
                     placeholder="El proyecto..."
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    value={form.projectDescription}
+                    onChange={handelChange}
                   />
                 </div>
 
@@ -70,24 +80,20 @@ const ProjectRegistration = () => {
                   </label>
                   <input
                     type="number"
+                    id='budget'
                     placeholder="2500.000.000"
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-3 block text-black dark:text-white">
-                    Estado
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="En ejecución"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    value={form.budget}
+                    onChange={handelChange}
                   />
                 </div>
 
                 <div className="mb-3 block text-black dark:text-white">
-                  <SelectGroupOne />
+                  <SelectGroupOne labelText="Líder del proyecto" selectPlaceholder="Seleccione el líder"/>
+                </div>
+
+                <div className="mb-3 block text-black dark:text-white">
+                  <SelectGroupTwo/>
                 </div>
 
                 <button className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">

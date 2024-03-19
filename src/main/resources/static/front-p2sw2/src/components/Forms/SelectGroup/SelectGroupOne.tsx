@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import axios from 'axios';
 
-const SelectGroupOne: React.FC = () => {
+const SelectGroupOne: React.FC<{ labelText: string; selectPlaceholder: string }> = ({ labelText, selectPlaceholder }) => {
   const [selectedOption, setSelectedOption] = useState<string>('');
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
   const [options, setOptions] = useState<string[]>([]);
@@ -9,6 +9,7 @@ const SelectGroupOne: React.FC = () => {
   const changeTextColor = () => {
     setIsOptionSelected(true);
   };
+
 
   useEffect(() => {
     const fetchOptions = async () => {
@@ -27,8 +28,7 @@ const SelectGroupOne: React.FC = () => {
   return (
     <div className="mb-4.5">
       <label className="mb-2.5 block text-black dark:text-white">
-        {' '}
-        Líder del proyecto{' '}
+        {labelText}
       </label>
 
       <div className="relative z-20 bg-transparent dark:bg-form-input">
@@ -38,7 +38,7 @@ const SelectGroupOne: React.FC = () => {
           className="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
         >
           <option value="" disabled>
-            Seleccione el líder
+          {selectPlaceholder}
           </option>
           {options.map((option, index) => (
             <option key={index} value={option}>
