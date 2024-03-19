@@ -29,7 +29,7 @@ const ProjectRegistration = () => {
 
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Registre un nuevo Empleado" />
+      <Breadcrumb pageName="Registre un nuevo Proyecto" />
 
       <div className="container mx-auto">
         <div className=" justify-center items-center gap-9">
