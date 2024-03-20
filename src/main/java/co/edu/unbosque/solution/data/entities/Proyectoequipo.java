@@ -1,28 +1,33 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-/**
- * The type Proyectoequipo.
- */
-@Getter
-@Setter
+import java.io.Serializable;
+
+@Data
 @Entity
 @Table(name = "proyectoequipo")
-public class Proyectoequipo {
-    @EmbeddedId
-    private ProyectoequipoId id;
+public class Proyectoequipo implements Serializable {
 
-    @MapsId("idProyecto")
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @Column(name = "idProyecto", nullable = false)
+    private Integer idProyecto;
+
+    @Id
+    @Column(name = "idEquipoProyecto", nullable = false)
+    private Integer idEquipoProyecto;
+
+    @MapsId
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idProyecto", nullable = false)
-    private Proyecto idProyecto;
+    private Proyecto idProyecto1;
 
-    @MapsId("idEquipoProyecto")
+    @MapsId
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idEquipoProyecto", nullable = false)
-    private Equipoproyecto idEquipoProyecto;
+    private Equipoproyecto idEquipoProyecto1;
 
 }

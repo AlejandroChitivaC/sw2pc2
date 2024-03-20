@@ -17,10 +17,10 @@ const SignUp: React.FC = () => {
                 <em>"Sistema de Administración de Proyectos"</em>
               </p>
               <span className="inline-block">
-                <img
+                {/* <img
                   srcSet="/src/images/brand/Logo-Universidad-El-Bosque.jpg"
                   className="rounded py-3"
-                />
+                /> */}
               </span>
             </div>
           </div>
@@ -31,7 +31,7 @@ const SignUp: React.FC = () => {
                 Registrese ahora en la Empresa ABC
               </h2>
 
-              <form onSubmit={handleSubmit} id="signupForm">
+              <form id="signupForm">
                 <div className="mb-4">
                   <label
                     htmlFor="name"
