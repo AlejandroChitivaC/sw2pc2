@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DbConfig {
     /**
-     * Data source
+     * Data source configuration
      *
      * @return the data source
      */
@@ -30,8 +30,5 @@ public class DbConfig {
         db.setPassword("1234");
         return db;
     }
-    @Bean
-    public JdbcTemplate jdbcTemplate() {
-        return new JdbcTemplate(dataSource());
-    }
+
 }

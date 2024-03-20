@@ -5,6 +5,7 @@ import co.edu.unbosque.solution.data.entities.Usuario;
 import co.edu.unbosque.solution.data.model.LoginData;
 import co.edu.unbosque.solution.data.model.SignUpData;
 import co.edu.unbosque.solution.data.repos.UsuarioRepository;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -59,21 +60,19 @@ public class AuthService {
     }
 
     public ResponseBase<Usuario> addUser(SignUpData signUpData) {
-        var response = new ResponseBase<Usuario>();
-        try {
-            var data = _userRepo.spRegisterUser(signUpData.usuario(), signUpData.email(), signUpData.password(),null);
-            if (data != null) {
-                response.setValid(true);
-                response.setMessage("Bienvenido " + data.getEmail());
-            } else {
-                response.setValid(false);
-                response.setMessage("Usuario no encontrado, verifique las credenciales");
-            }
-        } catch (Exception e) {
-            response.setValid(false);
-            response.setMessage("Oops, ha ocurrido un error intente nuevamente");
-        }
-
-        return response;
+    var response = new ResponseBase<Usuario>();
+    try {
+        _userRepo.registerUser(signUpData.usuario(), signUpData.email(), signUpData.password(), null);
+        response.setValid(true);
+        response.setMessage("Usuario registrado correctamente.");
+    } catch (DataAccessException e) {
+        response.setValid(false);
+        response.setMessage("Error al procesar la solicitud. Por favor, inténtelo de nuevo.");
+        // Aquí podrías agregar un registro de error detallado si es necesario
     }
+
+    return response;
+}
+
+
 }

@@ -150,13 +150,12 @@ CREATE TABLE IF NOT EXISTS proyectoabc.tarea (
 
 -- tabla usuario  --
 CREATE TABLE IF NOT EXISTS proyectoabc.usuario (
-  `idUsuario` int NOT NULL AUTO_INCREMENT,
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
   `nombre_usuario` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `idEmpleado` int DEFAULT NULL,
-  PRIMARY KEY (`idUsuario`),
-  UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
+  PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`),
   KEY `idEmpleado` (`idEmpleado`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idEmpleado`) REFERENCES `proyectoabc`.`empleado` (`idEmpleado`)

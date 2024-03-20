@@ -1,5 +1,8 @@
 package co.edu.unbosque.solution.data.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * The type Response base.
  *
@@ -7,63 +10,23 @@ package co.edu.unbosque.solution.data.entities;
  */
 public class ResponseBase<T> {
 
+    @Getter
+    @Setter
     private boolean isValid;
-    private String message;
-    //Esto es un generic type
-    private T dataSingle;
-
     /**
-     * Is valid boolean.
-     *
-     * @return the boolean
-     */
-    public boolean isValid() {
-        return isValid;
-    }
-
-    /**
-     * Sets valid.
-     *
-     * @param valid the valid
-     */
-    public void setValid(boolean valid) {
-        isValid = valid;
-    }
-
-    /**
+     * -- GETTER --
      * Gets message.
      *
      * @return the message
      */
-    public String getMessage() {
-        return message;
-    }
+    @Getter
+    @Setter
+    private String message;
+    //Esto es un generic type
+    @Getter
+    @Setter
+    private T dataSingle;
 
-    /**
-     * Sets message.
-     *
-     * @param message the message
-     */
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
-    /**
-     * Gets data single.
-     *
-     * @return the data single
-     */
-    public T getDataSingle() {
-        return dataSingle;
-    }
-
-    /**
-     * Sets data single.
-     *
-     * @param dataSingle the data single
-     */
-    public void setDataSingle(T dataSingle) {
-        this.dataSingle = dataSingle;
-    }
 }
 

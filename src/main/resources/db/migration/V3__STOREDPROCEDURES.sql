@@ -199,20 +199,31 @@ DELIMITER ;
 -- Registrar usuario --
 DELIMITER //
 
-
-CREATE PROCEDURE proyectoabc.registrar_usuario(
+CREATE PROCEDURE registrar_usuario(
     IN p_nombre_usuario VARCHAR(100),
     IN p_email VARCHAR(255),
     IN p_password VARCHAR(255),
     IN p_idEmpleado INT
 )
 BEGIN
-    -- Insertar el nuevo usuario en la tabla de usuarios
-    INSERT INTO proyectoabc.usuario (nombre_usuario, email, password, idEmpleado)
-    VALUES (p_nombre_usuario, p_email, p_password, p_idEmpleado);
+    DECLARE duplicate_error CONDITION FOR SQLSTATE '23000';  -- Define una condición para el error de duplicado
 
-    -- Mensaje de éxito
-    SELECT 'Usuario registrado correctamente' AS Mensaje;
+    BEGIN
+        -- Intenta insertar el nuevo usuario en la tabla de usuarios
+        INSERT INTO usuario (nombre_usuario, email, password, idEmpleado)
+        VALUES (p_nombre_usuario, p_email, p_password, p_idEmpleado);
+
+        -- Si la inserción es exitosa, muestra un mensaje de éxito
+        SELECT 'Usuario registrado exitosamente.' as Mensaje;
+    END;
+
+    -- Maneja la excepción si se produce un error de duplicado
+    BEGIN
+        DECLARE CONTINUE HANDLER FOR duplicate_error
+        BEGIN
+            -- Muestra un mensaje de error personalizado
+            SELECT 'Error: El nombre de usuario ya está en uso.';
+        END;
+    END;
 END //
-
 DELIMITER ;
