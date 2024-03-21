@@ -3,7 +3,7 @@ import DefaultLayout from '../../layout/DefaultLayout';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 import SelectGroupOne from '../../components/Forms/SelectGroup/SelectGroupOne';
 
-const AsignacionEmpleados = () => {
+const EmployeeAssignment = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Asigne un empleado" />
@@ -13,7 +13,7 @@ const AsignacionEmpleados = () => {
       
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-              <h3 className="font-medium text-black dark:text-white">
+              <h3 className="font-medium text-black dark:text-white text-center">
                 Asignación de equipo
               </h3>
             </div>
@@ -62,4 +62,4 @@ const AsignacionEmpleados = () => {
   );
 };
 
-export default AsignacionEmpleados;
+export default EmployeeAssignment;

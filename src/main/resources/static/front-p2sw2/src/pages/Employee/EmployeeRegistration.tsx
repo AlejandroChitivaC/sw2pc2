@@ -2,7 +2,7 @@ import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import DefaultLayout from '../../layout/DefaultLayout';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 
-const RegistroEmpleados = () => {
+const EmployeeRegistration = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Registre un nuevo Empleado" />
@@ -12,7 +12,7 @@ const RegistroEmpleados = () => {
       
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-              <h3 className="font-medium text-black dark:text-white">
+              <h3 className="font-medium text-black dark:text-white text-center">
                 Empleado
               </h3>
             </div>
@@ -110,4 +110,4 @@ const RegistroEmpleados = () => {
   );
 };
 
-export default RegistroEmpleados;
+export default EmployeeRegistration;

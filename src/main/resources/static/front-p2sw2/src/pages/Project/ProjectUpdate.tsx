@@ -12,7 +12,7 @@ const ActualizarProyecto = () => {
           {/* <!-- Contact Form --> */}
           <div className="h-full rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-              <h3 className="font-medium text-black dark:text-white">
+              <h3 className="font-medium text-black dark:text-white text-center">
                 Actualización del proyecto
               </h3>
             </div>
@@ -57,7 +57,7 @@ const ActualizarProyecto = () => {
           {/* <!-- Sign In Form --> */}
           <div className="h-full rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-              <h3 className="font-medium text-black dark:text-white">
+              <h3 className="font-medium text-black dark:text-white text-center">
                 Registro de cambios
               </h3>
             </div>

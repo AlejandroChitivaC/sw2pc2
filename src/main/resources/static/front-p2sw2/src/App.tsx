@@ -11,7 +11,7 @@ import ProjectRegistration from './pages/Project/ProjectRegistration';
 import ProjectUpdate from './pages/Project/ProjectUpdate';
 import EmployeeRegistration from './pages/Employee/EmployeeRegistration';
 import EmployeeAssignment from './pages/Employee/EmployeeAssignment';
-//import EmployeeTimeProject from './pages/Employee/EmployeeTimeProject';
+import EmployeeTimeProject from './pages/Employee/EmployeeTimeProject';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
@@ -91,13 +91,13 @@ function App() {
           }
         />
 //        <Route
-//          path="/tiempo-empleados"
-//          element={
-//            <>
-  //            <PageTitle title="Tiempo Proyecto " />
-    //</>          <EmployeeTimeProject />
-      //      </>
-        //  }
+          path="/tiempo-empleados"
+          element={
+            <>
+              <PageTitle title="Tiempo Empleados " />
+              <EmployeeTimeProject />
+            </>
+          }
         />
 
         <Route
