@@ -2,7 +2,6 @@ package co.edu.unbosque.solution.controllers;
 
 import co.edu.unbosque.solution.data.entities.ResponseBase;
 import co.edu.unbosque.solution.data.model.RegisterProject;
-import co.edu.unbosque.solution.data.model.RegisterProject;
 import co.edu.unbosque.solution.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * The type Project controller.
  */
 @RestController
-@RequestMapping("/project")
+@RequestMapping("/registro")
 public class ProjectController {
     private ProjectService _ProjectService;
 
@@ -34,7 +33,7 @@ public class ProjectController {
      * @param projectData the project data
      * @return the response base
      */
-    @PostMapping(path = "/register")
+    @PostMapping(path = "-proyecto")
     public ResponseBase<RegisterProject> registerProject(@RequestBody RegisterProject registerProject) {
         var response = new ResponseBase<RegisterProject>();
         try {
