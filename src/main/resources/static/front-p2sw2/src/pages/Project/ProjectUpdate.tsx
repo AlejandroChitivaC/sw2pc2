@@ -2,7 +2,7 @@ import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 import DefaultLayout from '../../layout/DefaultLayout';
 
-const ActualizarProyecto = () => {
+const ProjectUpdate = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Actualizar proyecto" />
@@ -103,4 +103,4 @@ const ActualizarProyecto = () => {
   );
 };
 
-export default ActualizarProyecto;
+export default ProjectUpdate;

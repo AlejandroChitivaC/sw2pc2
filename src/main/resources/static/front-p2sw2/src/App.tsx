@@ -5,16 +5,13 @@ import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
-import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
 import ProjectRegistration from './pages/Project/ProjectRegistration';
 import ProjectUpdate from './pages/Project/ProjectUpdate';
+import ProjectProgress from './pages/Project/ProjectProgress';
 import EmployeeRegistration from './pages/Employee/EmployeeRegistration';
 import EmployeeAssignment from './pages/Employee/EmployeeAssignment';
 import EmployeeTimeProject from './pages/Employee/EmployeeTimeProject';
-import Profile from './pages/Profile';
-import Settings from './pages/Settings';
-import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 
@@ -73,6 +70,15 @@ function App() {
           }
         />
         <Route
+          path="/progreso-proyecto"
+          element={
+            <>
+              <PageTitle title="Progreso del proyecto" />
+              <ProjectProgress />
+            </>
+          }
+        />
+        <Route
           path="/registro-empleados"
           element={
             <>
@@ -100,43 +106,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/calendar"
-          element={
-            <>
-              <PageTitle title="Calendar | BosquePM App" />
-              <Calendar />
-            </>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <>
-              <PageTitle title="Profile | BosquePM App " />
-              <Profile />
-            </>
-          }
-        />
-
-        <Route
-          path="/tables"
-          element={
-            <>
-              <PageTitle title="Tables | BosquePM App " />
-              <Tables />
-            </>
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <>
-              <PageTitle title="Settings | BosquePM App " />
-              <Settings />
-            </>
-          }
-        />
+        
         <Route
           path="/chart"
           element={
