@@ -17,7 +17,6 @@ const GenerateReport = () => {
             </div>
             <form action="#">
                 <div className="flex flex-col gap-5.5 p-7.5">
-                    
 
                     <button className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
                         Generar Reporte

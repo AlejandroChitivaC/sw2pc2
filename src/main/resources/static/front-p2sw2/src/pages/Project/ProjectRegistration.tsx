@@ -12,10 +12,18 @@ const ProjectRegistration = () => {
     projectName,
     projectDescription,
     budget,
+    startDate,
+    endDate,
+    projectStatus,
+    projectLeader,
     handleSubmit,
     handelNameChange,
     handelDescriptionChange,
     handelBudgetChange,
+    handleStartDateChange,
+    handleEndDateChange,
+    handleStatusChange,
+    handleLeaderChange,
   } = useProjectRegistrationForm();
 
 
@@ -63,8 +71,11 @@ const ProjectRegistration = () => {
                 </div>
 
                 <div className="mb-3 block text-black dark:text-white">
-                  <DatePickerOne label="Fecha de inicio" />
-                  <DatePickerOne label="Fecha de finalización" />
+                  <DatePickerOne label="Fecha de inicio" value={startDate} onChange={handleStartDateChange}/>
+                </div>
+
+                <div className="mb-3 block text-black dark:text-white">
+                  <DatePickerOne label="Fecha de finalización" onChange={handleEndDateChange} value={endDate}/>
                 </div>
 
                 <div>
@@ -82,11 +93,11 @@ const ProjectRegistration = () => {
                 </div>
 
                 <div className="mb-3 block text-black dark:text-white">
-                  <SelectGroupOne labelText="Líder del proyecto" selectPlaceholder="Seleccione el líder"/>
+                  <SelectGroupOne labelText="Líder del proyecto" selectPlaceholder="Seleccione el líder" onChange={handleLeaderChange}/>
                 </div>
 
-                <div className="mb-3 block text-black dark:text-white">
-                  <SelectGroupTwo/>
+                <div className="mb-3 block text-black dark:text-white" >
+                  <SelectGroupTwo onChange={handleStatusChange}/>
                 </div>
 
                 <button className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">

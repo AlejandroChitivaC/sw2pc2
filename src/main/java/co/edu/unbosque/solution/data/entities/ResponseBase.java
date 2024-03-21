@@ -11,6 +11,7 @@ public class ResponseBase<T> {
     private String message;
     //Esto es un generic type
     private T dataSingle;
+    private T data;
 
     /**
      * Is valid boolean.
@@ -64,6 +65,14 @@ public class ResponseBase<T> {
      */
     public void setDataSingle(T dataSingle) {
         this.dataSingle = dataSingle;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }
 
