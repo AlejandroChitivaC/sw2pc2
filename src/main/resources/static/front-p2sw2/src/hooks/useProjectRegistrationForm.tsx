@@ -11,7 +11,7 @@ const useProjectRegistrationForm = () => {
     const [endDate, setEndDate] = useState<Date | null>(null);
     const [projectStatus, setProjectStatus] = useState<string>('');
     const [projectLeader, setProjectLeader] = useState<string>(''); // Estado para el líder del proyecto
-    const url = '';
+    const url = 'http://localhost:8080/registro-proyecto';
 
     const handelNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setProjectName(e.target.value);
