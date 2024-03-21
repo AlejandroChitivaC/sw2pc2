@@ -1,31 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import DefaultLayout from '../../layout/DefaultLayout';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 import SelectGroupOne from '../../components/Forms/SelectGroup/SelectGroupOne';
 import SelectGroupTwo from '../../components/Forms/SelectGroup/SelectGroupTwo';
+import useProjectRegistrationForm from '../../hooks/useProjectRegistrationForm';
 
 
 const ProjectRegistration = () => {
-  const [form, setForm] = useState({
-    projectName: '',
-    projectDescription: '',
-    startDate: '',
-    endDate: '',
-    budget: '',
-    status: '',
-  });
+  const {
+    projectName,
+    projectDescription,
+    budget,
+    handleSubmit,
+    handelNameChange,
+    handelDescriptionChange,
+    handelBudgetChange,
+  } = useProjectRegistrationForm();
 
- 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Aquí puedes manejar la lógica de envío del formulario, como enviar los datos al backend
-    console.log(form);
-  };
 
-  const handelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-};
 
   return (
     <DefaultLayout>
@@ -46,12 +39,12 @@ const ProjectRegistration = () => {
                     Nombre
                   </label>
                   <input
-                    type="text"
+                    type="projectName"
                     id="projectName"
                     placeholder="Nombre del proyecto"
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    value={form.projectName}
-                    onChange={handelChange}
+                    value={projectName}
+                    onChange={handelNameChange}
                   />
                 </div>
 
@@ -60,12 +53,12 @@ const ProjectRegistration = () => {
                     Descripción
                   </label>
                   <input
-                    type="text"
+                    type="projectDescription"
                     id='projectDescription'
                     placeholder="El proyecto..."
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    value={form.projectDescription}
-                    onChange={handelChange}
+                    value={projectDescription}
+                    onChange={handelDescriptionChange}
                   />
                 </div>
 
@@ -79,12 +72,12 @@ const ProjectRegistration = () => {
                     Presupuesto
                   </label>
                   <input
-                    type="number"
+                    type="budget"
                     id='budget'
                     placeholder="2500.000.000"
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    value={form.budget}
-                    onChange={handelChange}
+                    value={budget}
+                    onChange={handelBudgetChange}
                   />
                 </div>
 
