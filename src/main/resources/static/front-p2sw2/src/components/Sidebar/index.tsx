@@ -212,8 +212,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
               {/* <!-- Menu del Proyecto --> */}
 
-              {/* <!-- Menu de Empleados --> */}
-              <SidebarLinkGroup
+                {/* <!-- Menu de Empleados --> */}
+                <SidebarLinkGroup
                 activeCondition={
                   pathname === '/forms' || pathname.includes('forms')
                 }

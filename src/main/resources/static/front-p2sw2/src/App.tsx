@@ -11,6 +11,7 @@ import ProjectRegistration from './pages/Project/ProjectRegistration';
 import ProjectUpdate from './pages/Project/ProjectUpdate';
 import EmployeeRegistration from './pages/Employee/EmployeeRegistration';
 import EmployeeAssignment from './pages/Employee/EmployeeAssignment';
+//import EmployeeTimeProject from './pages/Employee/EmployeeTimeProject';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
@@ -84,10 +85,19 @@ function App() {
           path="/asignacion-empleados"
           element={
             <>
-              <PageTitle title="Registro Proyecto " />
+              <PageTitle title="Asignación de empleados " />
               <EmployeeAssignment />
             </>
           }
+        />
+//        <Route
+//          path="/tiempo-empleados"
+//          element={
+//            <>
+  //            <PageTitle title="Tiempo Proyecto " />
+    //</>          <EmployeeTimeProject />
+      //      </>
+        //  }
         />
 
         <Route
