@@ -25,9 +25,9 @@ public class DbConfig {
     public DataSource dataSource() {
         DriverManagerDataSource db = new DriverManagerDataSource();
         db.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        db.setUrl("jdbc:mysql://localhost:3306/bd_sw2pc2");
+        db.setUrl("jdbc:mysql://localhost:3306/proyectoabc");
         db.setUsername("root");
-        db.setPassword("1234");
+        db.setPassword("admin");
         return db;
     }
     @Bean

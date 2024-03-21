@@ -62,13 +62,20 @@ public class AuthService {
     public ResponseBase<Usuario> addUser(SignUpData signUpData) {
         var response = new ResponseBase<Usuario>();
         try {
-            var data = _userRepo.spRegisterUser(signUpData.usuario(), signUpData.email(), signUpData.password(),null);
-            if (data != null) {
+            // Realizar la inserción en la base de datos utilizando una sentencia SQL directa
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.setUsuario(signUpData.usuario());
+            nuevoUsuario.setEmail(signUpData.email());
+            nuevoUsuario.setPassword(signUpData.password());
+
+            Usuario usuarioGuardado = _userRepo.save(nuevoUsuario);
+
+            if (usuarioGuardado != null) {
                 response.setValid(true);
-                response.setMessage("Bienvenido " + data.getEmail());
+                response.setMessage("Usuario registrado exitosamente");
             } else {
                 response.setValid(false);
-                response.setMessage("Usuario no encontrado, verifique las credenciales");
+                response.setMessage("Error al registrar el usuario");
             }
         } catch (Exception e) {
             response.setValid(false);
@@ -77,4 +84,5 @@ public class AuthService {
 
         return response;
     }
+
 }
