@@ -64,7 +64,7 @@ public class AuthService {
         try {
             // Realizar la inserción en la base de datos utilizando una sentencia SQL directa
             Usuario nuevoUsuario = new Usuario();
-            nuevoUsuario.setUsuario(signUpData.usuario());
+            nuevoUsuario.setNombreUsuario(signUpData.usuario());
             nuevoUsuario.setEmail(signUpData.email());
             nuevoUsuario.setPassword(signUpData.password());
 

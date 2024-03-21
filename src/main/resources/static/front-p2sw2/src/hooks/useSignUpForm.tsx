@@ -5,7 +5,7 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const useSignUpForm = () => {
     const [formData, setFormData] = useState({
-        nombre: '',
+        usuario: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -23,7 +23,7 @@ const useSignUpForm = () => {
 
         try {
             const response = await axios.post(url, {
-                nombre: formData.nombre,
+                usuario: formData.usuario,
                 email: formData.email,
                 password: formData.password
             });

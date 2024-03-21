@@ -3,7 +3,7 @@ package co.edu.unbosque.solution.data.model;
 /**
  * The type Sign up data.
  */
-public record SignUpData(String email, String password,String usuario) {
+public record SignUpData(String email, String usuario, String password) {
 
     /**
      * Email string.

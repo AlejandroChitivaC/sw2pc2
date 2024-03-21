@@ -22,17 +22,20 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
 
+    @Setter
     @Column(name = "nombre_usuario", nullable = false)
     private String nombreUsuario;
 
+    @Setter
     @Column(name = "email", nullable = false)
     private String email;
 
+    @Setter
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "idEmpleado")
-    private Integer idEmpleado;
+    @Column(name = "id_Empleado")
+    private Integer id_Empleado;
 
     @Override
     public final boolean equals(Object o) {
