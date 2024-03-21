@@ -12,6 +12,7 @@ import ProjectProgress from './pages/Project/ProjectProgress';
 import EmployeeRegistration from './pages/Employee/EmployeeRegistration';
 import EmployeeAssignment from './pages/Employee/EmployeeAssignment';
 import EmployeeTimeProject from './pages/Employee/EmployeeTimeProject';
+import GenerateReport from './pages/Report/GenerateReport';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 
@@ -96,12 +97,22 @@ function App() {
             </>
           }
         />
-//        <Route
+        <Route
           path="/tiempo-empleados"
           element={
             <>
               <PageTitle title="Tiempo Empleados " />
               <EmployeeTimeProject />
+            </>
+          }
+        />
+
+        <Route
+          path="/informe"
+          element={
+            <>
+              <PageTitle title="Informes " />
+              <GenerateReport />
             </>
           }
         />
