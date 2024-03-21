@@ -1,70 +1,67 @@
-// @ts-ignore
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
+interface FormData {
+    email: string;
+    usuario: string;
+    password: string;
+    confirmPassword: string;
+}
+
 const useSignUpForm = () => {
-    const [formData, setFormData] = useState({
-        usuario: '',
+    const [formData, setFormData] = useState<FormData>({
         email: '',
+        usuario: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
     });
 
-    const url = 'http://localhost:8080/auth/register';
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
 
-    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const { email, usuario, password, confirmPassword } = formData;
 
-        if (formData.password !== formData.confirmPassword) {
-            alert('Las contraseñas no coinciden');
+        // Verificar si las contraseñas coinciden
+        if (password !== confirmPassword) {
+            Report.failure('Error de registro', 'Las contraseñas no coinciden', 'Ok');
             return;
         }
 
-        try {
-            const response = await axios.post(url, {
-                usuario: formData.usuario,
-                email: formData.email,
-                password: formData.password
+        axios
+            .post('http://localhost:8080/auth/register', {
+                email,
+                usuario,
+                password,
+            })
+            .then((response) => {
+                console.log(response);
+                if (response.data.valid) {
+                    Report.success('Registro Exitoso', response.data.message, 'Ok');
+                } else {
+                    Report.failure('Error de registro', response.data.message, 'Ok');
+                }
+            })
+            .catch((error) => {
+                console.log('Error en la solicitud:', error);
+                Report.failure('Error de registro', 'Ocurrió un error al registrar. Por favor, intenta nuevamente.', 'Ok');
             });
 
-            if (response.data.valid) {
-                Report.success(
-                    'Registro Exitoso',
-                    `${response.data.message}`,
-                    'Ok',
-                );
-            } else {
-                Report.failure(
-                    'Error al registrar',
-                    `${response.data.message}`,
-                    'Ok',
-                );
-            }
-        } catch (error) {
-            console.error('Error al enviar los datos:', error);
-            Report.failure(
-                'Error de registro',
-                'Ocurrió un error al registrar. Por favor, intenta nuevamente.',
-                'Okay',
-            );
-        }
-    };
-
-    const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+        console.log('Form Data:', formData);
     };
 
     return {
         formData,
+        handleInputChange,
         handleSubmit,
-        handleInputChange
     };
 };
 
 export default useSignUpForm;
-

@@ -41,7 +41,7 @@ const useSignInForm = () => {
           //setTimeOut, es para definir un tiempo de espera para que se ejecute lo que está dentro
           setTimeout(() => {
             // Redirecciona a Dashboard (LAS RUTAS LAS ENCUENTRAN EN  *App.tsx*)
-            window.location.href = '/index/dashboard';
+            window.location.href = '/chart';
             // <Link to="index/dashboard"></Link>;
           }, 500);
         } else {

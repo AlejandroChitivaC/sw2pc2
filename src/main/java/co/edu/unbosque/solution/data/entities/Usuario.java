@@ -34,9 +34,6 @@ public class Usuario implements Serializable {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "id_Empleado")
-    private Integer id_Empleado;
-
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
