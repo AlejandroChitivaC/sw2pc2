@@ -5,7 +5,6 @@ import co.edu.unbosque.solution.data.entities.Usuario;
 import co.edu.unbosque.solution.data.model.LoginData;
 import co.edu.unbosque.solution.data.model.SignUpData;
 import co.edu.unbosque.solution.data.repos.UsuarioRepository;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -60,18 +59,29 @@ public class AuthService {
     }
 
     public ResponseBase<Usuario> addUser(SignUpData signUpData) {
-    var response = new ResponseBase<Usuario>();
-    try {
-        _userRepo.registerUser(signUpData.usuario(), signUpData.email(), signUpData.password(), null);
-        response.setValid(true);
-        response.setMessage("Usuario registrado correctamente.");
-    } catch (DataAccessException e) {
-        response.setValid(false);
-        response.setMessage("Error al procesar la solicitud. Por favor, inténtelo de nuevo.");
+        var response = new ResponseBase<Usuario>();
+        try {
+            // Realizar la inserción en la base de datos utilizando una sentencia SQL directa
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.setNombreUsuario(signUpData.usuario());
+            nuevoUsuario.setEmail(signUpData.email());
+            nuevoUsuario.setPassword(signUpData.password());
+
+            Usuario usuarioGuardado = _userRepo.save(nuevoUsuario);
+
+            if (usuarioGuardado != null) {
+                response.setValid(true);
+                response.setMessage("Usuario registrado exitosamente");
+            } else {
+                response.setValid(false);
+                response.setMessage("Error al registrar el usuario");
+            }
+        } catch (Exception e) {
+            response.setValid(false);
+            response.setMessage("Oops, ha ocurrido un error intente nuevamente");
+        }
+
+        return response;
     }
-
-    return response;
-}
-
 
 }

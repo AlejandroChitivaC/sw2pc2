@@ -22,16 +22,16 @@ public class EmpleadoService {
         try {
             // Realizar la inserción en la base de datos utilizando una sentencia SQL directa
             Empleado nuevoEmpleado = new Empleado();
-            nuevoEmpleado.setNombre(registerEmpleado.nombre());
-            nuevoEmpleado.setDireccion(registerEmpleado.direccion());
-            nuevoEmpleado.setSalario(registerEmpleado.salario());
-            nuevoEmpleado.setFecha_ingreso(registerEmpleado.fecha_ingreso());
-            nuevoEmpleado.setFecha_nacimiento(registerEmpleado.fecha_nacimiento());
-            nuevoEmpleado.setTipo_documento(registerEmpleado.tipo_documento_id());
-            nuevoEmpleado.setNumero_documento(registerEmpleado.numeroDocumento());
-            nuevoEmpleado.setTelefono(registerEmpleado.telefono());
+//            nuevoEmpleado.setNombre();
+//            nuevoEmpleado.setDireccion(registerEmpleado.direccion());
+//            nuevoEmpleado.setSalario(registerEmpleado.salario());
+//            nuevoEmpleado.setFecha_ingreso(registerEmpleado.fecha_ingreso());
+//            nuevoEmpleado.setFecha_nacimiento(registerEmpleado.fecha_nacimiento());
+//            nuevoEmpleado.setTipo_documento(registerEmpleado.tipo_documento_id());
+//            nuevoEmpleado.setNumero_documento(registerEmpleado.numeroDocumento());
+//            nuevoEmpleado.setTelefono(registerEmpleado.telefono());
 
-            Empleado empleadoGuardado = _empleadoRepo.save(nuevoEmpleado);
+            Empleado empleadoGuardado = _empleadoRepo.insertarEmpleado(registerEmpleado.nombre(), registerEmpleado.direccion(),registerEmpleado.salario(),registerEmpleado.fecha_ingreso(),registerEmpleado.fecha_nacimiento(),registerEmpleado.tipo_documento_id(),registerEmpleado.numero_documento(),registerEmpleado.telefono());
 
             if (empleadoGuardado != null) {
                 response.setValid(true);

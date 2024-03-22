@@ -7,27 +7,11 @@ import org.hibernate.proxy.HibernateProxy;
 import java.io.Serializable;
 import java.util.Objects;
 
-import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
-
-import java.io.Serializable;
-import java.util.Objects;
-
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-@ToString
-@RequiredArgsConstructor
 @Entity
-@Table(name = "usuario")
-public class Usuario implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Column(name = "id_usuario",unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Table(name = "usuario")
 public class Usuario implements Serializable {
 
@@ -45,8 +29,6 @@ public class Usuario implements Serializable {
     @Setter
     @Column(name = "email", nullable = false)
     private String email;
-
-    @Column(name = "password", nullable = false)
 
     @Setter
     @Column(name = "password", nullable = false)

@@ -25,7 +25,7 @@ const useProjectRegistrationForm = () => {
 
     const [successMessage, setSuccessMessage] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState<string>('');
-    const url = 'http://localhost:8080/registro-proyecto';
+    const url = 'http://localhost:8080/projects/register';
 
     const handelNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -146,7 +146,7 @@ const useProjectRegistrationForm = () => {
             // @ts-ignore
             if (error.response) {
                 // @ts-ignore
-                setErrorMessage(`Error al registrar el proyecto: ${error.response.data.message}`);
+                setErrorMessage('Error al registrar el proyecto: ${error.response.data.message}');
             } else {
                 setErrorMessage('Error al registrar el proyecto: Ocurrió un error inesperado. Por favor, inténtelo de nuevo más tarde.');
             }

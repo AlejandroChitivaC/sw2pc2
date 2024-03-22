@@ -14,7 +14,7 @@ const SelectGroupOne: React.FC<{ labelText: string; selectPlaceholder: string; o
   useEffect(() => {
     const fetchOptions = async () => {
       try {
-        const response = await axios.get('/api/options'); // Hacer solicitud HTTP al endpoint del backend
+        const response = await axios.get('http://localhost:8080/usuarios/nombres'); // Hacer solicitud HTTP al endpoint del backend
         setOptions(response.data);
       } catch (error) {
         console.error('Error fetching options:', error);

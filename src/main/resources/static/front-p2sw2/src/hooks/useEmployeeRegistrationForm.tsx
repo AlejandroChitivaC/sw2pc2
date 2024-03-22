@@ -79,7 +79,7 @@ const useEmployeeRegistrationForm = () => {
         })
 
         .catch((error)=>{
-            console.log('Error en la solicitud:', error);
+            console.log('Error en la solicitud:', error.message);
             Report.failure('Error de registro', 'Ocurrio un error al registrar empleado. Por favor, intente nuevamente.','OK');
 
         });

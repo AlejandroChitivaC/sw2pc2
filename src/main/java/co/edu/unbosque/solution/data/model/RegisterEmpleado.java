@@ -34,7 +34,7 @@ public record RegisterEmpleado(String nombre, String direccion, BigDecimal salar
     }
 
     // Método para acceder al número de documento del empleado
-    public String numeroDocumento() {
+    public String numero_documento() {
         return numero_documento;
     }
 
