@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 
 interface DatePickerProps {
   label: string;
-  value: Date | null;
-  onChange: (date: Date | null) => void;
+  value: Date ;
+  onChange: (date: Date) => void;
 }
 
 const DatePickerOne = ({label, onChange }: DatePickerProps) => {
@@ -21,8 +21,7 @@ const DatePickerOne = ({label, onChange }: DatePickerProps) => {
         onChange: (selectedDates: Date[] | undefined) => { // Cambiar el tipo de la variable a Date[] | undefined
           if (selectedDates && selectedDates.length > 0) {
             onChange(selectedDates[0]); // Pasa el primer elemento del array de fechas seleccionadas
-          } else {
-            onChange(null); // Si no hay fecha seleccionada, pasa null
+          
           }
         },
       });
@@ -36,6 +35,7 @@ const DatePickerOne = ({label, onChange }: DatePickerProps) => {
       <div className="relative">
         <input
           className="form-datepicker w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+          type="text"
           placeholder="yyyy/mm/dd"
           data-class="flatpickr-right"
         />
