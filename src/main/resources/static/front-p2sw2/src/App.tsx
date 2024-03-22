@@ -10,8 +10,6 @@ import ProjectRegistration from './pages/Project/ProjectRegistration';
 import ProjectUpdate from './pages/Project/ProjectUpdate';
 import ProjectProgress from './pages/Project/ProjectProgress';
 import EmployeeRegistration from './pages/Employee/EmployeeRegistration';
-import EmployeeAssignment from './pages/Employee/EmployeeAssignment';
-import EmployeeTimeProject from './pages/Employee/EmployeeTimeProject';
 import GenerateReport from './pages/Report/GenerateReport';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
@@ -88,33 +86,8 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/tiempo-empleados"
-          element={
-            <>
-              <PageTitle title="Tiempo Proyecto " />
-              <EmployeeTimeProject />
-            </>
-          }
-        />
-        <Route
-          path="/asignacion-empleados"
-          element={
-            <>
-              <PageTitle title="Asignación de empleados " />
-              <EmployeeAssignment />
-            </>
-          }
-        />
-        <Route
-          path="/tiempo-empleados"
-          element={
-            <>
-              <PageTitle title="Tiempo Empleados " />
-              <EmployeeTimeProject />
-            </>
-          }
-        />
+
+        
 
         <Route
           path="/informe"

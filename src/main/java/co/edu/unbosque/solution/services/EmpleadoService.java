@@ -8,6 +8,7 @@ import co.edu.unbosque.solution.data.repos.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Service
 public class EmpleadoService {
 
     EmpleadoRepository _empleadoRepo;
