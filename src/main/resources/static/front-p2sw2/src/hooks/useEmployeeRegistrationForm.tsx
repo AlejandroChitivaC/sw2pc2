@@ -58,7 +58,7 @@ const useEmployeeRegistrationForm = () => {
 
 
     axios
-        .post('http://localhost:8080/registrar-empleados',{
+        .post('http://localhost:8080/registrar/addEmployee',{
             nombre,
             direccion,
             salario,

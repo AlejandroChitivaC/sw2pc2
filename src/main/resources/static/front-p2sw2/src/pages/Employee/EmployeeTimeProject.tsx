@@ -45,9 +45,9 @@ const EmployeeTimeProject = () => {
                     <DatePickerOne label="Fecha de registro"/>
                 </div>
 
-                <button className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
+ /**                <button className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
                   Registrar Tiempo
-
+*/</button>
               <h3 className="font-medium text-black dark:text-white">
                 Tiempo de Empleado en proyecto
               </h3>

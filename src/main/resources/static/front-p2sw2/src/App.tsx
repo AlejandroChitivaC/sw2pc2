@@ -80,7 +80,7 @@ function App() {
           }
         />
         <Route
-          path="/registro-empleados"
+          path="/registro/addEmpleado"
           element={
             <>
               <PageTitle title="Registro Empleados " />
