@@ -37,8 +37,9 @@ const useEmployeeRegistrationForm = () => {
         fecha_ingreso: date,
       }));
     } else {
-      // Manejar el caso en el que no hay fecha seleccionada, por ejemplo, mostrando un mensaje de error
+      // Detener el flujo del formulario y mostrar un mensaje de error al usuario
       console.error("Por favor, seleccione una fecha.");
+      return; // Detener el flujo del formulario
     }
   };
 
@@ -58,7 +59,7 @@ const useEmployeeRegistrationForm = () => {
 
 
     axios
-        .post('http://localhost:8080/registrar-empleados',{
+        .post('http://localhost:8080/registro/addEmppleado',{
             nombre,
             direccion,
             salario,

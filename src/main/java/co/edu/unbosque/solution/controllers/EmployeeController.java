@@ -20,7 +20,7 @@ public class EmployeeController {
         _empleadoService = empleadoService;
     }
 
-    @PostMapping(path = "-empleados")
+    @PostMapping(path = "/addEmpleado")
     public ResponseBase<RegisterEmpleado> empleado(@RequestBody RegisterEmpleado registerEmpleado){
 
         var response = new ResponseBase<RegisterEmpleado>();

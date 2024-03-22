@@ -64,17 +64,6 @@ const EmployeeRegistration: React.FC = () => {
                 </label>
                 <input
                   type="number"
-                  placeholder="Salario"
-
-                  className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                />
-              </div>
-              <div>
-                <label className="mb-3 block text-black dark:text-white">
-                  Salario
-                </label>
-                <input
-                  type="number"
                   placeholder="5000000.00"
                   name = "salario"
                   id = "salario"
@@ -151,7 +140,6 @@ const EmployeeRegistration: React.FC = () => {
                 type="submit"
                 value="Registrar"
                 className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-                  
               </input>
               
             </div>
