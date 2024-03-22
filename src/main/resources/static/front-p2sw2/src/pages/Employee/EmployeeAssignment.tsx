@@ -41,7 +41,7 @@ const AsignacionEmpleados = () => {
               </div>
 
               <div className="mb-3 block text-black dark:text-white">
-                <DatePickerOne label="Fecha de creación"/>
+                <DatePickerOne label="Fecha de asignación"/>
               </div>
 
               <div className="mb-3 block text-black dark:text-white">
