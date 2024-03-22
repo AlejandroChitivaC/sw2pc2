@@ -1,39 +1,36 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.sql.Date;
 
-/**
- * The type Tarea.
- */
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "tarea")
-public class Tarea {
+public class Tarea implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idTarea", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idTarea;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idProyecto")
-    private Proyecto idProyecto;
+    @Column(name = "idProyecto")
+    private Integer idProyecto;
 
-    @Lob
     @Column(name = "descripcion")
     private String descripcion;
 
     @Column(name = "fecha_inicio")
-    private LocalDate fechaInicio;
+    private Date fechaInicio;
 
     @Column(name = "fecha_fin_prevista")
-    private LocalDate fechaFinPrevista;
+    private Date fechaFinPrevista;
 
-    @Column(name = "estado", length = 50)
+    @Column(name = "estado")
     private String estado;
 
 }

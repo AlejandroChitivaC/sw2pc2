@@ -47,7 +47,7 @@ class AuthServiceTest {
         when(usuarioRepository.findUsuarioByEmailAndPassword("email", "password")).thenReturn(usuario);
 
         // Run the test
-        final ResponseBase<LoginData> result = authServiceUnderTest.authUser(loginData);
+        final ResponseBase<Usuario> result = authServiceUnderTest.authUser(loginData);
 
         // Verify the results
     }
@@ -62,7 +62,7 @@ class AuthServiceTest {
         when(usuarioRepository.findUsuarioByEmailAndPassword("email", "password")).thenReturn(null);
 
         // Run the test
-        final ResponseBase<LoginData> result = authServiceUnderTest.authUser(loginData);
+        final ResponseBase<Usuario> result = authServiceUnderTest.authUser(loginData);
 
         // Verify the results
     }

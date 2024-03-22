@@ -2,10 +2,9 @@ package co.edu.unbosque.solution.controllers;
 
 import co.edu.unbosque.solution.data.entities.ResponseBase;
 import co.edu.unbosque.solution.data.model.LoginData;
-import co.edu.unbosque.solution.data.repos.UsuarioRepository;
+import co.edu.unbosque.solution.data.model.SignUpData;
 import co.edu.unbosque.solution.services.AuthService;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +40,25 @@ public class AuthController {
         var response = new ResponseBase<LoginData>();
         try {
             var data = _authService.authUser(loginData);
+            response.setValid(data.isValid());
+            response.setMessage(data.getMessage());
+
+        } catch (Exception e) {
+            response.setValid(false);
+            response.setMessage("Oops, ha ocurrido un error intente nuevamente");
+        }
+
+        return response;
+    }
+
+    @PostMapping(path = "/register")
+    public ResponseBase<SignUpData> register(@RequestBody SignUpData signUpData) {
+
+        var response = new ResponseBase<SignUpData>();
+        try {
+            System.out.println(signUpData);
+
+            var data = _authService.addUser(signUpData);
             response.setValid(data.isValid());
             response.setMessage(data.getMessage());
 

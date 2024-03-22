@@ -89,6 +89,15 @@ function App() {
           }
         />
         <Route
+          path="/tiempo-empleados"
+          element={
+            <>
+              <PageTitle title="Tiempo Proyecto " />
+              <EmployeeTimeProject />
+            </>
+          }
+        />
+        <Route
           path="/asignacion-empleados"
           element={
             <>

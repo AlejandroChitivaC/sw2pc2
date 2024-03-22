@@ -3,6 +3,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
@@ -13,7 +14,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DbConfig {
     /**
-     * Data source data source.
+     * Data source configuration
      *
      * @return the data source
      */
@@ -29,4 +30,5 @@ public class DbConfig {
         db.setPassword("12345");
         return db;
     }
+
 }

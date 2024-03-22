@@ -66,8 +66,8 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>3.11.2</version> <!-- La versión más reciente de Mockito -->
-            <scope>test</scope> <!-- Indica que esta dependencia es solo para pruebas -->
+            <version>3.11.2</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
