@@ -1,50 +1,66 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "empleado")
-public class Empleado {
+public class Empleado implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @Column(name = "idEmpleado", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idEmpleado;
 
-    @Column(name = "nombre", length = 100)
+    @Column(name = "nombre")
     private String nombre;
 
     @Column(name = "direccion")
     private String direccion;
 
-    @Column(name = "salario", precision = 10, scale = 2)
+    @Column(name = "salario")
     private BigDecimal salario;
 
     @Column(name = "fecha_ingreso")
-    private LocalDate fechaIngreso;
+    private Date fechaIngreso;
 
     @Column(name = "fecha_nacimiento")
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tipo_documento_id")
-    private Tipodocumento tipoDocumento;
+    @Column(name = "tipo_documento_id")
+    private Integer tipoDocumentoId;
 
-    @Column(name = "numero_documento", length = 50)
+    @Column(name = "numero_documento")
     private String numeroDocumento;
 
-    @Column(name = "telefono", length = 20)
+    @Column(name = "telefono")
     private String telefono;
 
-    @Column(name = "nombre_completo", nullable = false)
-    private String nombreCompleto;
+    @OneToMany(mappedBy = "idEmpleado")
+    private Set<EmpleadoRol> empleadoRols = new LinkedHashSet<>();
 
-    @Column(name = "id_tipo_documento", nullable = false)
-    private Integer idTipoDocumento;
+    @OneToMany(mappedBy = "idEmpleado")
+    private Set<Equipoproyecto> equipoproyectos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idEmpleado")
+    private Set<Historialcambios> historialcambios = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idLiderProyecto")
+    private Set<Proyecto> proyectos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idEmpleado")
+    private Set<Seguimientotiempo> seguimientotiempos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idEmpleado")
+    private Set<Usuario> usuarios = new LinkedHashSet<>();
 
 }

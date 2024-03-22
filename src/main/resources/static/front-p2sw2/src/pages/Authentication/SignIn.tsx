@@ -202,24 +202,6 @@ const SignIn: React.FC = () => {
                     fill="#3f3d56"
                   />
                 </svg>
-      <div className="rounded-sm border h-full mt-10 border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-        <div className="flex flex-wrap h-full  items-center">
-          <div className="hidden xl:block h-full xl:w-1/2">
-            <div className="text-center h-full">
-              <span className="inline-block">
-                <h5>
-                  <strong>BosquePM App</strong>
-                </h5>
-              </span>
-              <p className="2xl:px-20 py-2">
-                <em>"Sistema de Gestion de Proyectos"</em>
-              </p>
-
-              <span className="inline-block">
-                <img
-                  srcSet="/src/images/brand/Logo-Universidad-El-Bosque.jpg"
-                  className="rounded py-3"
-                />
               </span>
             </div>
           </div>
@@ -230,7 +212,7 @@ const SignIn: React.FC = () => {
                 Bienvenido a la <strong>Empresa ABC</strong>
               </h2>
 
-              <form method="post" onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Email
@@ -309,12 +291,11 @@ const SignIn: React.FC = () => {
 
                 <div className="mb-5">
                   {/* <Link to="/dashboard"> */}
-                  <button
-                    id="submit"
+                  <input
                     type="submit"
                     value="Ingresar"
                     className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                  >Ingresar</button>
+                  />
                   {/* </Link> */}
                 </div>
 

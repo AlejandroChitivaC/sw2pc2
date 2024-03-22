@@ -11,6 +11,7 @@ import ProjectRegistration from './pages/Project/ProjectRegistration';
 import ProjectUpdate from './pages/Project/ProjectUpdate';
 import EmployeeRegistration from './pages/Employee/EmployeeRegistration';
 import EmployeeAssignment from './pages/Employee/EmployeeAssignment';
+import EmployeeTimeProject from './pages/Employee/EmployeeTimeProject';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
@@ -35,6 +36,7 @@ function App() {
     <>
       <Routes>
         <Route
+          path="/"
           index
           element={
             <>
@@ -49,7 +51,6 @@ function App() {
             <>
               <PageTitle title="Registro" />
               <SignUp />
-
             </>
           }
         />
@@ -89,6 +90,15 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/tiempo-empleados"
+          element={
+            <>
+              <PageTitle title="Tiempo Proyecto " />
+              <EmployeeTimeProject />
+            </>
+          }
+        />
 
         <Route
           path="/calendar"
@@ -108,7 +118,7 @@ function App() {
             </>
           }
         />
-        
+
         <Route
           path="/tables"
           element={
@@ -172,7 +182,6 @@ function App() {
             </>
           }
         />
-
       </Routes>
     </>
   );

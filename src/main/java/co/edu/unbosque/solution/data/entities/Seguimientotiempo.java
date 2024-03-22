@@ -1,34 +1,34 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.sql.Date;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "seguimientotiempo")
-public class Seguimientotiempo {
+public class Seguimientotiempo implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idSeguimientoTiempo", nullable = false)
-    private Integer id;
+    private Integer idSeguimientoTiempo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idProyecto")
-    private Proyecto idProyecto;
+    @Column(name = "idProyecto")
+    private Integer idProyecto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idEmpleado")
-    private Empleado idEmpleado;
+    @Column(name = "idEmpleado")
+    private Integer idEmpleado;
 
-    @Column(name = "horas_trabajadas", precision = 10, scale = 2)
+    @Column(name = "horas_trabajadas")
     private BigDecimal horasTrabajadas;
 
     @Column(name = "fecha_registro")
-    private LocalDate fechaRegistro;
+    private Date fechaRegistro;
 
 }

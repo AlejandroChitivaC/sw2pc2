@@ -1,25 +1,26 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+import java.io.Serializable;
+
+@Data
 @Entity
 @Table(name = "empleado_rol")
-public class EmpleadoRol {
-    @EmbeddedId
-    private EmpleadoRolId id;
+public class EmpleadoRol implements Serializable {
 
-    @MapsId("idEmpleado")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idEmpleado", nullable = false)
-    private Empleado idEmpleado;
+    private static final long serialVersionUID = 1L;
 
-    @MapsId("idRol")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idRol", nullable = false)
-    private Rol idRol;
+    @Id
+    @Column(name = "idEmpleadoRol", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idEmpleadoRol;
+
+    @Column(name = "idEmpleado", nullable = false)
+    private Integer idEmpleado;
+
+    @Column(name = "idRol", nullable = false)
+    private Integer idRol;
 
 }

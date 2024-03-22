@@ -1,20 +1,28 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+@Data
 @Entity
 @Table(name = "rol")
-public class Rol {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idRol", nullable = false)
-    private Integer id;
+public class Rol implements Serializable {
 
-    @Column(name = "rol", length = 100)
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @Column(name = "idRol", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idRol;
+
+    @Column(name = "rol")
     private String rol;
+
+    @OneToMany(mappedBy = "idRol")
+    private Set<EmpleadoRol> empleadoRols = new LinkedHashSet<>();
 
 }

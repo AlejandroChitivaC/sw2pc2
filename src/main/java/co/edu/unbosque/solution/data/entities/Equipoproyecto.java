@@ -1,32 +1,41 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "equipoproyecto")
-public class Equipoproyecto {
+public class Equipoproyecto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idEquipoProyecto", nullable = false)
-    private Integer id;
+    private Integer idEquipoProyecto;
 
-    @Column(name = "nombre_equipo", length = 100)
+    @Column(name = "nombre_equipo")
     private String nombreEquipo;
 
     @Column(name = "descripcion")
     private String descripcion;
 
     @Column(name = "fecha_creacion")
-    private LocalDate fechaCreacion;
+    private Date fechaCreacion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idEmpleado")
-    private Empleado idEmpleado;
+    @Column(name = "idEmpleado")
+    private Integer idEmpleado;
+
+    @ManyToMany
+    @JoinTable(name = "proyectoequipo",
+            joinColumns = @JoinColumn(name = "idEquipoProyecto"),
+            inverseJoinColumns = @JoinColumn(name = "idProyecto"))
+    private Set<Proyecto> proyectos = new LinkedHashSet<>();
 
 }

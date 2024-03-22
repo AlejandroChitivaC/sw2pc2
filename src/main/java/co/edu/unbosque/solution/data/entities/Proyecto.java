@@ -1,20 +1,24 @@
 package co.edu.unbosque.solution.data.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "proyecto")
-public class Proyecto {
+public class Proyecto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idProyecto", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProyecto;
 
     @Column(name = "nombre")
@@ -24,32 +28,36 @@ public class Proyecto {
     private String descripcion;
 
     @Column(name = "fecha_inicio")
-    private LocalDate fechaInicio;
+    private Date fechaInicio;
 
     @Column(name = "fecha_fin_prevista")
-    private LocalDate fechaFinPrevista;
+    private Date fechaFinPrevista;
 
-    @Column(name = "presupuesto", precision = 10, scale = 2)
+    @Column(name = "presupuesto")
     private BigDecimal presupuesto;
 
-    @Column(name = "estado", length = 50)
+    @Column(name = "estado")
     private String estado;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idLiderProyecto")
-    private Empleado idLiderProyecto;
+    @Column(name = "idLiderProyecto")
+    private Integer idLiderProyecto;
 
-    @Lob
-    @Column(name = "descripcion_proyecto", nullable = false)
-    private String descripcionProyecto;
+    @OneToMany(mappedBy = "idProyecto")
+    private Set<Historialcambios> historialcambios = new LinkedHashSet<>();
 
-    @Column(name = "nombre_completo", nullable = false)
-    private String nombreCompleto;
+    @ManyToMany
+    @JoinTable(name = "proyectoequipo",
+            joinColumns = @JoinColumn(name = "idProyecto"),
+            inverseJoinColumns = @JoinColumn(name = "idEquipoProyecto"))
+    private Set<Equipoproyecto> equipoproyectos = new LinkedHashSet<>();
 
-    @Column(name = "id_equipo", nullable = false)
-    private Integer idEquipo;
+    @OneToMany(mappedBy = "idProyecto")
+    private Set<Seguimientoproyecto> seguimientoproyectos = new LinkedHashSet<>();
 
-    @Column(name = "id_lider", nullable = false)
-    private Integer idLider;
+    @OneToMany(mappedBy = "idProyecto")
+    private Set<Seguimientotiempo> seguimientotiempos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idProyecto")
+    private Set<Tarea> tareas = new LinkedHashSet<>();
 
 }
