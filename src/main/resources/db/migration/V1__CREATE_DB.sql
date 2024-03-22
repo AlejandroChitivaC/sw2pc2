@@ -1,4 +1,3 @@
-
 -- tabla tipo documento --
 
 CREATE TABLE IF NOT EXISTS proyectoabc.tipodocumento (
@@ -15,20 +14,32 @@ CREATE TABLE IF NOT EXISTS proyectoabc.rol (
 );
 
 
+-- tabla usuario  --
+CREATE TABLE IF NOT EXISTS proyectoabc.usuario (
+                                                   `id_usuario` int NOT NULL AUTO_INCREMENT,
+                                                   `nombre_usuario` varchar(100) NOT NULL,
+                                                   `email` varchar(255) NOT NULL,
+                                                   `password` varchar(255) NOT NULL,
+                                                   PRIMARY KEY (`id_usuario`),
+                                                   UNIQUE KEY `email` (`email`)
+) ;
+
+
 -- tabla empleado --
 CREATE TABLE IF NOT EXISTS proyectoabc.empleado (
-                                                    `idEmpleado` int NOT NULL AUTO_INCREMENT,
-                                                    `nombre` varchar(100) DEFAULT NULL,
-                                                    `direccion` varchar(255) DEFAULT NULL,
-                                                    `salario` decimal(10,2) DEFAULT NULL,
-                                                    `fecha_ingreso` date DEFAULT NULL,
-                                                    `fecha_nacimiento` date DEFAULT NULL,
-                                                    `tipo_documento_id` int DEFAULT NULL,
-                                                    `numero_documento` varchar(50) DEFAULT NULL,
-                                                    `telefono` varchar(20) DEFAULT NULL,
+                                                    `idEmpleado` INT NOT NULL AUTO_INCREMENT,
+                                                    `nombre` VARCHAR(100) DEFAULT NULL,
+                                                    `direccion` VARCHAR(255) DEFAULT NULL,
+                                                    `salario` DECIMAL(10,2) DEFAULT NULL,
+                                                    `fecha_ingreso` DATE DEFAULT NULL,
+                                                    `fecha_nacimiento` DATE DEFAULT NULL,
+                                                    `tipo_documento_id` INT DEFAULT NULL,
+                                                    `numero_documento` VARCHAR(50) DEFAULT NULL,
+                                                    `telefono` VARCHAR(20) DEFAULT NULL,
+                                                    `id_usuario` INT NOT NULL,
                                                     PRIMARY KEY (`idEmpleado`),
                                                     KEY `tipo_documento_id` (`tipo_documento_id`),
-                                                    CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`tipo_documento_id`) REFERENCES `proyectoabc`.`tipodocumento` (`idTipoDocumento`)
+                                                    CONSTRAINT `fk_usuario_empleado` FOREIGN KEY (`id_usuario`) REFERENCES `proyectoabc`.`usuario` (`id_usuario`)
 );
 
 
@@ -144,16 +155,3 @@ CREATE TABLE IF NOT EXISTS proyectoabc.tarea (
                                                  KEY `idProyecto` (`idProyecto`),
                                                  CONSTRAINT `tarea_ibfk_1` FOREIGN KEY (`idProyecto`) REFERENCES `proyectoabc`.`proyecto` (`idProyecto`)
 );
-
-
-
-
--- tabla usuario  --
-CREATE TABLE IF NOT EXISTS proyectoabc.usuario (
-                                                   `id_usuario` int NOT NULL AUTO_INCREMENT,
-                                                   `nombre_usuario` varchar(100) NOT NULL,
-                                                   `email` varchar(255) NOT NULL,
-                                                   `password` varchar(255) NOT NULL,
-                                                   PRIMARY KEY (`id_usuario`),
-                                                   UNIQUE KEY `email` (`email`)
-) ;
