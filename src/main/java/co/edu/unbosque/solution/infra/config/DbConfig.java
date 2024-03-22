@@ -27,7 +27,7 @@ public class DbConfig {
         db.setDriverClassName("com.mysql.cj.jdbc.Driver");
         db.setUrl("jdbc:mysql://localhost:3306/proyectoabc");
         db.setUsername("root");
-        db.setPassword("1234");
+        db.setPassword("admin");
         return db;
     }
 
