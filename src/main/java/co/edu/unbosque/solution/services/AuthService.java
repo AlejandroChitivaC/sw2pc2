@@ -5,7 +5,6 @@ import co.edu.unbosque.solution.data.entities.Usuario;
 import co.edu.unbosque.solution.data.model.LoginData;
 import co.edu.unbosque.solution.data.model.SignUpData;
 import co.edu.unbosque.solution.data.repos.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
