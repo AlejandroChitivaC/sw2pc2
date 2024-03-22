@@ -24,6 +24,10 @@ const SelectGroupOne: React.FC<{ labelText: string; selectPlaceholder: string; o
     fetchOptions();
   }, []);
 
+  const handleChange = (e: React.FormEvent<HTMLSelectElement>) => {
+    const leader = e.currentTarget.value; // Acceder al valor del formulario
+  };
+
   return (
       <div className="mb-4.5">
         <label className="mb-2.5 block text-black dark:text-white">
@@ -36,7 +40,8 @@ const SelectGroupOne: React.FC<{ labelText: string; selectPlaceholder: string; o
               onChange={(e) => {
                 setSelectedOption(e.target.value);
                 changeTextColor(); // Llamar a la función para cambiar el color del texto
-                onChange(e.target.value); // Llamar a la función onChange pasada como prop
+                onChange(e.target.value);
+                handleChange(e);
               }}
               className="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
           >

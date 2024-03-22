@@ -2,9 +2,20 @@ import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import DefaultLayout from '../../layout/DefaultLayout';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 import SelectGroupOne from '../../components/Forms/SelectGroup/SelectGroupOne';
+import useEmployeeResgitrationForm from '../../hooks/useEmployeeRegistrationForm';
+import useEmployeeAssignmentForm from '../../hooks/useEmployeeAssignmentForm';
 
 
 const EmployeeAssignment = () => {
+
+  const{
+    formEmpleados,
+    handleDateChange,
+    handleSubmit,
+    handleInputChange,
+    handleChange
+  } = useEmployeeAssignmentForm();
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Asigne un empleado" />
@@ -15,8 +26,6 @@ const EmployeeAssignment = () => {
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
 
-              <h3 className="font-medium text-black dark:text-white text-center">
-                Asignación de equipo
               <h3 className="font-medium text-black dark:text-white">
                 Asignacion de equipo
 
@@ -46,15 +55,17 @@ const EmployeeAssignment = () => {
               </div>
 
               <div className="mb-3 block text-black dark:text-white">
-                <DatePickerOne label="Fecha de creación"/>
+                <DatePickerOne label="Fecha de creación" onChange={handleDateChange} value={formEmpleados.fecha_creacion}/>
               </div>
 
               <div className="mb-3 block text-black dark:text-white">
-                  <SelectGroupOne labelText="Empleado" selectPlaceholder="Seleccione el empleado que desea asignar"/>
+                  <SelectGroupOne onChange={(leader: string) => handleChange(leader)} labelText="Empleado" selectPlaceholder="Seleccione el empleado que desea asignar"/>
                 </div>
-              <button className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-                  Asignar 
-                </button>
+                <input 
+                type="submit"
+                value="Registrar"
+                className="inline-flex items-center mx-auto justify-center rounded-full  bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
+              </input>
               
             </div>
           </div>
