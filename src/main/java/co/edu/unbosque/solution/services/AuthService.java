@@ -68,7 +68,6 @@ public class AuthService {
     } catch (DataAccessException e) {
         response.setValid(false);
         response.setMessage("Error al procesar la solicitud. Por favor, inténtelo de nuevo.");
-        // Aquí podrías agregar un registro de error detallado si es necesario
     }
 
     return response;
