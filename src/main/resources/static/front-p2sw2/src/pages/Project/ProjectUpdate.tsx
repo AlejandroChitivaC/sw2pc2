@@ -2,7 +2,7 @@ import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import DatePickerOne from '../../components/Forms/DatePicker/DatePickerOne';
 import DefaultLayout from '../../layout/DefaultLayout';
 
-const ProjectUpdate = () => {
+const ActualizarProyecto = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Actualizar proyecto" />
@@ -12,7 +12,7 @@ const ProjectUpdate = () => {
           {/* <!-- Contact Form --> */}
           <div className="h-full rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-              <h3 className="font-medium text-black dark:text-white text-center">
+              <h3 className="font-medium text-black dark:text-white">
                 Actualización del proyecto
               </h3>
             </div>
@@ -57,7 +57,7 @@ const ProjectUpdate = () => {
           {/* <!-- Sign In Form --> */}
           <div className="h-full rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-              <h3 className="font-medium text-black dark:text-white text-center">
+              <h3 className="font-medium text-black dark:text-white">
                 Registro de cambios
               </h3>
             </div>
@@ -103,4 +103,4 @@ const ProjectUpdate = () => {
   );
 };
 
-export default ProjectUpdate;
+export default ActualizarProyecto;
