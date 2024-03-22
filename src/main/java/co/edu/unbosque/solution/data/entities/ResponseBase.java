@@ -27,6 +27,22 @@ public class ResponseBase<T> {
     @Setter
     private T dataSingle;
 
+  /**
+     * Gets data single.
+     *
+     * @return the data single
+     */
+    public T getDataSingle() {
+        return dataSingle;
+    }
 
+    /**
+     * Sets data single.
+     *
+     * @param dataSingle the data single
+     */
+    public void setDataSingle(T dataSingle) {
+        this.dataSingle = dataSingle;
+    }
 }
 

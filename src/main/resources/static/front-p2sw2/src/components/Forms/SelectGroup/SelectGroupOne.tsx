@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import axios from 'axios';
 
-const SelectGroupOne: React.FC<{ labelText: string; selectPlaceholder: string }> = ({ labelText, selectPlaceholder }) => {
+const SelectGroupOne: React.FC<{ labelText: string; selectPlaceholder: string, onChange: (leader: string) => void }> = ({ labelText, selectPlaceholder, onChange}) => {
   const [selectedOption, setSelectedOption] = useState<string>('');
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
   const [options, setOptions] = useState<string[]>([]);
