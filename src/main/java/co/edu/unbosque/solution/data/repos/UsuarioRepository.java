@@ -4,6 +4,8 @@ import co.edu.unbosque.solution.data.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 /**
  * The interface Usuario repository.
  */
@@ -20,7 +22,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query(value = "INSERT INTO proyectoabc.usuario (nombre_usuario, email, password) VALUES (:nombreUsuario, :email, :password)", nativeQuery = true)
     void insertUsuario(String nombreUsuario, String email, String password);
 
-
+    @Query("SELECT u.nombreUsuario FROM Usuario u")
+    List<String> findAllNombreUsuario();
 
 
 }

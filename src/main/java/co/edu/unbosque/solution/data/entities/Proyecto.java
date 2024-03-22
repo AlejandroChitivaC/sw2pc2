@@ -38,9 +38,8 @@ public class Proyecto {
     @Column(name = "estado", length = 50)
     private String estado;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idLiderProyecto")
-    private Empleado idLiderProyecto;
+    @Column(name = "idLiderProyecto")
+    private Integer idLiderProyecto;
 
     @Lob
     @Column(name = "descripcion_proyecto", nullable = false)
