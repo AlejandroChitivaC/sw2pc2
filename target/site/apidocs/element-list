@@ -1,0 +1,7 @@
+co.edu.unbosque.solution
+co.edu.unbosque.solution.controllers
+co.edu.unbosque.solution.data.entities
+co.edu.unbosque.solution.data.model
+co.edu.unbosque.solution.data.repos
+co.edu.unbosque.solution.infra.config
+co.edu.unbosque.solution.services

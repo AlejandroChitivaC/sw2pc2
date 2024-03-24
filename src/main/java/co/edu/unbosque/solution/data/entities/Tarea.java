@@ -6,6 +6,9 @@ import lombok.Data;
 import java.io.Serializable;
 import java.sql.Date;
 
+/**
+ * The type Tarea.
+ */
 @Data
 @Entity
 @Table(name = "tarea")

@@ -7,6 +7,9 @@ import org.hibernate.proxy.HibernateProxy;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * The type Usuario.
+ */
 @Getter
 @Setter
 @ToString

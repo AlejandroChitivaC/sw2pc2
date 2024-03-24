@@ -8,6 +8,9 @@ import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * The type Equipoproyecto.
+ */
 @Data
 @Entity
 @Table(name = "equipoproyecto")

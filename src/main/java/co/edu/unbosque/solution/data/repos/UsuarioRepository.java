@@ -19,9 +19,21 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
      */
     Usuario findUsuarioByEmailAndPassword(String email, String password);
 
+    /**
+     * Insert usuario.
+     *
+     * @param nombreUsuario the nombre usuario
+     * @param email         the email
+     * @param password      the password
+     */
     @Query(value = "INSERT INTO proyectoabc.usuario (nombre_usuario, email, password) VALUES (:nombreUsuario, :email, :password)", nativeQuery = true)
     void insertUsuario(String nombreUsuario, String email, String password);
 
+    /**
+     * Find all nombre usuario list.
+     *
+     * @return the list
+     */
     @Query("SELECT u.nombreUsuario FROM Usuario u")
     List<String> findAllNombreUsuario();
 

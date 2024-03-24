@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 
+/**
+ * The type Project factory.
+ */
 @Component
 public class ProjectFactoryImpl implements ProjectFactory {
     @Override

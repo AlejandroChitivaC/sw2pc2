@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+/**
+ * The type Seguimientotiempo.
+ */
 @Data
 @Entity
 @Table(name = "seguimientotiempo")

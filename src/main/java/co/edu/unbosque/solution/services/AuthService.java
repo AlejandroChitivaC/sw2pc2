@@ -58,6 +58,12 @@ public class AuthService {
         return response;
     }
 
+    /**
+     * Add user response base.
+     *
+     * @param signUpData the sign up data
+     * @return the response base
+     */
     public ResponseBase<Usuario> addUser(SignUpData signUpData) {
         var response = new ResponseBase<Usuario>();
         try {

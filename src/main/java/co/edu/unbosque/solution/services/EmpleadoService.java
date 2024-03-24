@@ -8,15 +8,32 @@ import co.edu.unbosque.solution.data.repos.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * The type Empleado service.
+ */
 @Service
 public class EmpleadoService {
 
+    /**
+     * The Empleado repo.
+     */
     EmpleadoRepository _empleadoRepo;
 
+    /**
+     * Instantiates a new Empleado service.
+     *
+     * @param empleadoRepository the empleado repository
+     */
     public EmpleadoService(EmpleadoRepository empleadoRepository) {
         _empleadoRepo = empleadoRepository;
     }
 
+    /**
+     * Add empleado response base.
+     *
+     * @param registerEmpleado the register empleado
+     * @return the response base
+     */
     public ResponseBase<Empleado> addEmpleado(RegisterEmpleado registerEmpleado) {
         var response = new ResponseBase<Empleado>();
         try {

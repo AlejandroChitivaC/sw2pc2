@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * The type Employee controller.
+ */
 @RestController
 @RequestMapping("/registro")
 public class EmployeeController {
@@ -16,10 +19,21 @@ public class EmployeeController {
     private EmpleadoService _empleadoService;
     private HttpSession httpSession;
 
+    /**
+     * Instantiates a new Employee controller.
+     *
+     * @param empleadoService the empleado service
+     */
     public EmployeeController(EmpleadoService empleadoService){
         _empleadoService = empleadoService;
     }
 
+    /**
+     * Empleado response base.
+     *
+     * @param registerEmpleado the register empleado
+     * @return the response base
+     */
     @PostMapping(path = "/addEmpleado")
     public ResponseBase<RegisterEmpleado> empleado(@RequestBody RegisterEmpleado registerEmpleado){
 

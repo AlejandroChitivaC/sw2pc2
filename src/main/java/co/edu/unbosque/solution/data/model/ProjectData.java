@@ -5,6 +5,9 @@ import co.edu.unbosque.solution.data.entities.Proyecto;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * The type Project data.
+ */
 public record ProjectData(String nombre, String descripcion, LocalDate fechaInicio, LocalDate fechaFinPrevista, BigDecimal presupuesto, String estado, Integer idLiderProyecto) {
 
     /**

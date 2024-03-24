@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * The type Empleado rol.
+ */
 @Data
 @Entity
 @Table(name = "empleado_rol")

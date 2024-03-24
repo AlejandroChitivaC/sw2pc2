@@ -51,6 +51,12 @@ public class AuthController {
         return response;
     }
 
+    /**
+     * Register response base.
+     *
+     * @param signUpData the sign up data
+     * @return the response base
+     */
     @PostMapping(path = "/register")
     public ResponseBase<SignUpData> register(@RequestBody SignUpData signUpData) {
 

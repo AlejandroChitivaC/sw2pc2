@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * The type Proyectoequipo.
+ */
 @Data
 @Entity
 @Table(name = "proyectoequipo")

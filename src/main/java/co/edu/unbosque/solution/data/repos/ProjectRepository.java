@@ -19,7 +19,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface ProjectRepository extends JpaRepository<Proyecto, Long> {
 
-     @Modifying
+    /**
+     * Insertar proyecto proyecto.
+     *
+     * @param nombre             the nombre
+     * @param descripcion        the descripcion
+     * @param fecha_inicio       the fecha inicio
+     * @param fecha_fin_prevista the fecha fin prevista
+     * @param presupuesto        the presupuesto
+     * @param estado             the estado
+     * @param idLiderProyecto    the id lider proyecto
+     * @return the proyecto
+     */
+    @Modifying
     @Transactional
     @Query(value = "INSERT INTO proyectoabc.proyecto( nombre, descripcion, fecha_inicio, fecha_fin_prevista, presupuesto, estado, idLiderProyecto) VALUES (:nombre, :descripcion, :fecha_inicio, :fecha_fin_prevista, :presupuesto, :estado, :idLiderProyecto)", nativeQuery = true)
     Proyecto insertarProyecto(String nombre, String descripcion, LocalDate fecha_inicio, LocalDate fecha_fin_prevista, BigDecimal presupuesto, String estado, Integer idLiderProyecto);
